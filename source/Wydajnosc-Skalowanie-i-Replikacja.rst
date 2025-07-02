@@ -39,7 +39,7 @@ Wydajność
 Wydajność bazy danych to kluczowy czynnik wpływający na skuteczne zarządzanie danymi i funkcjonowanie organizacji. W dobie cyfrowej transformacji optymalizacja działania baz stanowi istotny element strategii IT. W tym rozdziale omówiono sześć głównych wskaźników wydajności: czas odpowiedzi, przepustowość, współbieżność, wykorzystanie zasobów, problem zapytań N+1 oraz błędy w bazie danych. Regularne monitorowanie tych parametrów i odpowiednie reagowanie zapewnia stabilność systemu i wysoką efektywność pracy. Zaniedbanie ich kontroli grozi spadkiem wydajności, ryzykiem utraty danych i poważnymi awariami.
 
 Klastry oraz indeksy
--------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 - Klaster w bazie danych to metoda organizacji, w której powiązane tabele są przechowywane na tym samym obszarze dysku. Dzięki relacjom za pomocą kluczy obcych dane znajdują się blisko siebie, co skraca czas dostępu i zwiększa wydajność wyszukiwania.
 
@@ -73,15 +73,17 @@ Na przepustowość wpływają:
  
 Podsumowując, odpowiednie zarządzanie współbieżnością, wybór architektury i rozproszenie danych to klucz do wysokiej przepustowości bazy danych.
 
-3. Czasy odpowiedzi bazy danych
+3. Responsywność bazy danych
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Czasy odpowiedzi bazy danych są kluczowe w środowiskach wymagających szybkich decyzji, np. w finansach czy sytuacjach kryzysowych. Na czas reakcji wpływają:
+Czasy odpowiedzi bazy danych są kluczowe w środowiskach wymagających szybkich decyzji, np. w finansach czy sytuacjach kryzysowych. 
+
+Na czas reakcji bazy wpływają:
  - Architektura bazy: dobrze zaprojektowane partycjonowanie, indeksowanie oraz bazy działające w pamięci operacyjnej znacząco przyspieszają dostęp do danych.
  - Topologia oraz stan sieci: opóźnienia, przepustowość i stabilność sieci w systemach rozproszonych wpływają na szybkość przesyłu danych; optymalizacja i kompresja zmniejszają te opóźnienia.
  - Balansowanie obciążeń oraz dostęp równoczesny: pooling połączeń, replikacja i równoważenie obciążenia pomagają utrzymać krótkie czasy odpowiedzi przy dużym ruchu.
  
-Szybkie odpowiedzi podnoszą efektywność, satysfakcję użytkowników i konkurencyjność systemu bazodanowego.
+Szybkie odpowiedzi podnoszą efektywność, satysfakcję użytkowników i konkurencyjność systemu bazodanowego. 
 
 4. Zapytania N+1
 ~~~~~~~~~~~~~~~~
@@ -97,7 +99,9 @@ Przyczyny to:
 5. Błędy w bazach danych
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Błędy wpływające na wydajność bazy danych to istotny wskaźnik kondycji systemu. Najczęstsze typy błędów to:
+Błędy wpływające na wydajność bazy danych to istotny wskaźnik kondycji systemu. 
+
+Najczęstsze typy błędów to:
  - Błędy składni zapytań – wynikają z niepoprawnej składni SQL, powodując odrzucenie zapytania.
  - Błędy połączenia – problemy z nawiązaniem połączenia, często przez awarie sieci, błędne konfiguracje lub awarie serwera.
  - Błędy limitów zasobów – gdy system przekracza dostępne zasoby (dysk, CPU, pamięć), co może spowalniać lub zatrzymywać działanie.
@@ -110,7 +114,9 @@ Błędy wpływające na wydajność bazy danych to istotny wskaźnik kondycji sy
 6. Zużycie dostępnych zasobów 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Zużycie zasobów w bazach danych to kluczowy czynnik wpływający na ich wydajność. Najważniejsze zasoby to:
+Zużycie zasobów w bazach danych to kluczowy czynnik wpływający na ich wydajność. 
+
+Najważniejsze zasoby to:
  - CPU: Odpowiada za przetwarzanie zapytań i zarządzanie transakcjami. Nadmierne obciążenie może wskazywać na przeciążenie lub nieoptymalne zapytania.
  - Operacje I/O na dysku: Odczyt i zapis danych. Wysoka liczba operacji może oznaczać słabe buforowanie; efektywne cache’owanie zmniejsza potrzebę częstego dostępu do dysku i eliminuje wąskie gardła.
  - Pamięć RAM: służy do przechowywania często używanych danych i buforów. Jej niedobór lub złe zarządzanie powoduje korzystanie z wolniejszej pamięci dyskowej, co obniża wydajność.
@@ -119,7 +125,7 @@ Dobre zarządzanie CPU, pamięcią i operacjami dyskowymi jest niezbędne dla ut
 
 
 Prostota rozbudowy:
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Bazy danych SQL typu scale-out umożliwiają liniową skalowalność przez dodawanie nowych węzłów do klastra bez przestojów i zmian w aplikacji czy sprzęcie. Każdy węzeł aktywnie przetwarza transakcje, a logika bazy jest przenoszona do tych węzłów, co ogranicza transfer danych w sieci i redukuje ruch. Tylko jeden węzeł obsługuje zapisy dla danego fragmentu danych, eliminując rywalizację o zasoby, co poprawia wydajność w porównaniu do tradycyjnych baz, gdzie blokady danych spowalniają system przy wielu operacjach jednocześnie.
 
 Analityka czasu rzeczywistego:
