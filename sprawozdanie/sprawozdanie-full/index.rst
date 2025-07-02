@@ -97,6 +97,7 @@ Podsumowując, odpowiednie zarządzanie współbieżnością, wybór architektur
 
 Czasy odpowiedzi bazy danych są kluczowe w środowiskach wymagających szybkich decyzji, 
 np. w finansach czy sytuacjach kryzysowych. Na czas reakcji wpływają:
+
  - Architektura bazy: dobrze zaprojektowane partycjonowanie, indeksowanie oraz bazy działające w pamięci operacyjnej znacząco przyspieszają dostęp do danych.
  - Topologia oraz stan sieci: opóźnienia, przepustowość i stabilność sieci w systemach rozproszonych wpływają na szybkość przesyłu danych; optymalizacja i kompresja zmniejszają te opóźnienia.
  - Balansowanie obciążeń oraz dostęp równoczesny: pooling połączeń, replikacja i równoważenie obciążenia pomagają utrzymać krótkie czasy odpowiedzi przy dużym ruchu.
@@ -119,6 +120,7 @@ Przyczyny to:
 
 Błędy wpływające na wydajność bazy danych to istotny wskaźnik kondycji systemu. 
 Najczęstsze typy błędów to:
+
  - Błędy składni zapytań – wynikają z niepoprawnej składni SQL, powodując odrzucenie zapytania.
  - Błędy połączenia – problemy z nawiązaniem połączenia, często przez awarie sieci, błędne konfiguracje lub awarie serwera.
  - Błędy limitów zasobów – gdy system przekracza dostępne zasoby (dysk, CPU, pamięć), co może spowalniać lub zatrzymywać działanie.
@@ -133,6 +135,7 @@ Najczęstsze typy błędów to:
 
 Zużycie zasobów w bazach danych to kluczowy czynnik wpływający na ich wydajność. 
 Najważniejsze zasoby to:
+
  - CPU: Odpowiada za przetwarzanie zapytań i zarządzanie transakcjami. Nadmierne obciążenie może wskazywać na przeciążenie lub nieoptymalne zapytania.
  - Operacje I/O na dysku: Odczyt i zapis danych. Wysoka liczba operacji może oznaczać słabe buforowanie; efektywne cache’owanie zmniejsza potrzebę częstego dostępu do dysku i eliminuje wąskie gardła.
  - Pamięć RAM: służy do przechowywania często używanych danych i buforów. Jej niedobór lub złe zarządzanie powoduje korzystanie z wolniejszej pamięci dyskowej, co obniża wydajność.
