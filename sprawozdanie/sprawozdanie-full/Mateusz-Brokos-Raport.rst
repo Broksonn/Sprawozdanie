@@ -521,7 +521,7 @@ Przykład optymalizacji:
     LIMIT 10;
 
 Prezentacja skryptów wspomagających
-===================================
+---------------------------------------------
 
 
 .. code-block:: python
