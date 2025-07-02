@@ -277,6 +277,8 @@ Legenda
   • Wizyta – dotyczy jednego pacjenta i jednego lekarza  
   • Lekarz – może prowadzić wiele wizyt (1..*)
 
+
+
 Model Logiczny
 ==============
 
