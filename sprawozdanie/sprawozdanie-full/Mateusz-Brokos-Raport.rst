@@ -9,7 +9,9 @@ Kurs: Bazy Danych 1
 
 Student oddający prace: Mateusz Brokos
 
-Celem tej sekcji jest pogłębienie wiedzy na temat baz danych przeprowadzając rozeznania literaturowe a następnie wyciągnięcie i utrwalenie najważniejszych informacji.
+Celem niniejszego raportu jest szczegółowe przedstawienie procesu projektowania, implementacji oraz analizy wydajności relacyjnej bazy danych wspierającej obsługę przychodni lekarskiej. Opracowana baza umożliwia rejestrację pacjentów, lekarzy i wizyt, zapewniając przejrzyste modele danych oraz możliwość generowania raportów i analiz statystycznych. W pracy uwzględniono aspekty normalizacji struktury tabel, optymalizacji zapytań oraz przykłady wykorzystania narzędzi wspomagających dokumentację kodu. Raport dokumentuje zarówno etap projektowy, jak i praktyczne aspekty realizacji rozwiązania.
+
+Celem następnej sekcji jest pogłębienie wiedzy na temat baz danych przeprowadzając rozeznania literaturowe a następnie wyciągnięcie i utrwalenie najważniejszych informacji.
 
 Rozdział 2
 ==================
@@ -598,6 +600,11 @@ Wnioski
 
 Rozdział 5
 ==================
+
+Podsumowanie
+------------------
+
+Przeprowadzony projekt oraz analiza wykazały, że zaprojektowana baza danych spełnia założone wymagania funkcjonalne i wydajnościowe. Model danych został znormalizowany do trzeciej postaci normalnej, co pozwoliło ograniczyć redundancję i uprościć strukturę tabel. Implementacja indeksów oraz widoków materializowanych przyczyniła się do poprawy efektywności wykonywania zapytań. Dodatkowo zastosowanie narzędzi do dokumentacji i generowania raportów umożliwiło przygotowanie przejrzystego zestawienia kodów źródłowych oraz wizualizacji danych. Wyniki testów potwierdziły prawidłowe działanie systemu i jego zgodność ze specyfikacją założoną na etapie projektowania.
 
 Spis repozytoriów
 ------------------
