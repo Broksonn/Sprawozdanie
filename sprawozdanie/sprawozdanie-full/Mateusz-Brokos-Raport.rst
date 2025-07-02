@@ -253,7 +253,7 @@ Celem tego raportu jest przedstawienie pełnego procesu projektowania i optymali
 
 
 Model Konceptualny
-==================
+------------------
 
 .. code-block:: none
 
@@ -280,7 +280,7 @@ Legenda
 
 
 Model Logiczny
-==============
+------------------
 
 .. code-block:: none
 
@@ -313,7 +313,7 @@ Relacje
   • Doctor.specialization_id → Specialization.specialization_id (1:N)
 
 Model Fizyczny
-==============
+------------------
 
 .. code-block:: sql
 
@@ -356,10 +356,10 @@ Model Fizyczny
     );
 
 Przykładowe rekordy
-===================
+--------------------------
 
 Tabela Specialization
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -374,7 +374,7 @@ Tabela Specialization
      - Kardiolog
 
 Tabela Doctor
--------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -396,7 +396,7 @@ Tabela Doctor
      - 2
 
 Tabela Patient
---------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -424,7 +424,7 @@ Tabela Patient
      - +48987654321
 
 Tabela Visit
--------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
