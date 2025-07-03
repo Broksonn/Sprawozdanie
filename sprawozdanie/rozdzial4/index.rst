@@ -1,5 +1,8 @@
+Rozdział 4
+==================
+
 Analiza Bazy danych i optymalizacja zapytań
-=================================================
+---------------------------------------------
 
 Analiza normalizacji
 --------------------
@@ -68,7 +71,7 @@ Przykład optymalizacji:
     LIMIT 10;
 
 Prezentacja skryptów wspomagających
-===================================
+---------------------------------------------
 
 
 .. code-block:: python
@@ -141,4 +144,4 @@ Wnioski
 
 - Model w 3NF minimalizuje redundancję i ułatwia utrzymanie.  
 - Indeksy i widoki materializowane znacząco przyspieszą zapytania analityczne.  
-- Regularne analizowanie planów (`EXPLAIN ANALYZE`) pozwoli wychwycić wąskie gardła.  
+- Regularne analizowanie planów (`EXPLAIN ANALYZE`) pozwoli wychwycić wąskie gardła.
