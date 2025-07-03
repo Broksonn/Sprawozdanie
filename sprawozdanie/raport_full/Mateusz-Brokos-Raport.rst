@@ -636,7 +636,7 @@ Spis repozytoriów
 ------------------
 
 #. Sprawozdanie: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja.git
-#. Przegląd literatury: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja/tree/8c84d3d13225e69815b04f28e9805a332ecfcd62/source
+#. Przegląd literatury: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja.git
 #. Kod: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja/tree/8c84d3d13225e69815b04f28e9805a332ecfcd62/sprawozdanie/kod
 
 
