@@ -5,6 +5,8 @@ Analiza normalizacji
 --------------------
 
 Model logiczny jest w 3NF:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 - Każda tabela ma pojedynczy klucz główny.
 - Atrybuty niekluczowe zależą wyłącznie od klucza.
 - Brak zależności przechodnich (specjalizacja wydzielona osobno).

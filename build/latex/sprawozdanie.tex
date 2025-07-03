@@ -79,7 +79,7 @@
 \pagestyle{empty}
 \sphinxmaketitle
 \pagestyle{plain}
-\sphinxtableofcontents
+\tableofcontents
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
 
@@ -972,11 +972,22 @@ odbyta
 
 \section{Analiza normalizacji}
 \label{\detokenize{rozdzial4/index:analiza-normalizacji}}
+
+\subsection{Model logiczny jest w 3NF:}
+\label{\detokenize{rozdzial4/index:model-logiczny-jest-w-3nf}}\begin{itemize}
+\item {} 
 \sphinxAtStartPar
-Model logiczny jest w 3NF:
-\sphinxhyphen{} Każda tabela ma pojedynczy klucz główny.
-\sphinxhyphen{} Atrybuty niekluczowe zależą wyłącznie od klucza.
-\sphinxhyphen{} Brak zależności przechodnich (specjalizacja wydzielona osobno).
+Każda tabela ma pojedynczy klucz główny.
+
+\item {} 
+\sphinxAtStartPar
+Atrybuty niekluczowe zależą wyłącznie od klucza.
+
+\item {} 
+\sphinxAtStartPar
+Brak zależności przechodnich (specjalizacja wydzielona osobno).
+
+\end{itemize}
 
 
 \section{Potencjalne problemy wydajnościowe}
@@ -1158,15 +1169,11 @@ Przeprowadzony projekt oraz analiza wykazały, że zaprojektowana baza danych sp
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \sphinxAtStartPar
-Sprawozdanie: \sphinxurl{https://github.com/Broksonn/Sprawozdanie.git}
+Sprawozdanie i kod: \sphinxurl{https://github.com/Broksonn/Sprawozdanie.git}
 
 \item {} 
 \sphinxAtStartPar
 Przegląd literatury: \sphinxurl{https://github.com/Broksonn/Wydajnosc\_Skalowanie\_i\_Replikacja.git}
-
-\item {} 
-\sphinxAtStartPar
-Kod: \sphinxurl{https://github.com/Broksonn/Wydajnosc\_Skalowanie\_i\_Replikacja/tree/8c84d3d13225e69815b04f28e9805a332ecfcd62/sprawozdanie/kod}
 
 \end{enumerate}
 
