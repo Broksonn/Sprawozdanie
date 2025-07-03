@@ -1,2 +1,0 @@
-# Przeglądy literatury
-
