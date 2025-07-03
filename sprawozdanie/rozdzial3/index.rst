@@ -1,5 +1,9 @@
+Rozdział 3
+==================
+
 Sprawozdanie: Projektowanie bazy danych - modele
-==========================================================================
+-------------------------------------------------
+
 
 :author: Mateusz Brokos, Szymon Blatkowski
 
@@ -13,8 +17,10 @@ Kurs: Bazy Danych 1
 Celem tego raportu jest przedstawienie pełnego procesu projektowania i optymalizacji bazy danych wspierającej rejestrację oraz obsługę wizyt lekarskich w przychodni.
 
 
+
+
 Model Konceptualny
-==================
+------------------
 
 .. code-block:: none
 
@@ -38,8 +44,10 @@ Legenda
   • Wizyta – dotyczy jednego pacjenta i jednego lekarza  
   • Lekarz – może prowadzić wiele wizyt (1..*)
 
+
+
 Model Logiczny
-==============
+------------------
 
 .. code-block:: none
 
@@ -51,7 +59,7 @@ Model Logiczny
   | last_name         | last_name       | doctor_id  (FK) |
   | pesel             | specialization_id (FK)| visit_datetime |
   | birth_date        +------------+---+| status         |
-  | email             | specialization_id → Specialization | notes          |
+  | email             | specialization_id → Specialization | notes |
   | phone             |                |
   +-------------+     +--------------+    
 
@@ -72,7 +80,7 @@ Relacje
   • Doctor.specialization_id → Specialization.specialization_id (1:N)
 
 Model Fizyczny
-==============
+------------------
 
 .. code-block:: sql
 
@@ -115,10 +123,10 @@ Model Fizyczny
     );
 
 Przykładowe rekordy
-===================
+--------------------------
 
 Tabela Specialization
----------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -133,7 +141,7 @@ Tabela Specialization
      - Kardiolog
 
 Tabela Doctor
--------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -155,7 +163,7 @@ Tabela Doctor
      - 2
 
 Tabela Patient
---------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -183,7 +191,7 @@ Tabela Patient
      - +48987654321
 
 Tabela Visit
--------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
