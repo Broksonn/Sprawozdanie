@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  3 JUL 2025 20:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  3 JUL 2025 20:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -899,7 +899,7 @@ teusz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
 
 
-[1
+[2
 
 
 
@@ -907,8 +907,7 @@ teusz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 Chapter 1.
 
 
-[1
-
+[3
 
 ]
 Chapter 2.
@@ -918,28 +917,10 @@ LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
 
-[2
+[4
 
 {C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.
 enc}]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[3]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[4]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -976,6 +957,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [8]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 525--528
 \T1/qtm/m/n/10.95 [1] Post-greSQL Doc-u-men-ta-tion ^^U Per-for-mance Tips [][]
 $https : / / www . postgresql . org / docs / current /
@@ -996,7 +995,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9]
+[11]
 Chapter 3.
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 5
 82.
@@ -1004,7 +1003,7 @@ LaTeX Font Info:    Trying to load font information for T1+txtt on input line 5
 File: t1txtt.fd 2000/12/15 v3.1
 )
 
-[10
+[12
 
 ]
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10.95> not available
@@ -1022,7 +1021,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[11]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 891--891
 []\T1/qhv/m/n/10.95 pa-
  []
@@ -1101,7 +1100,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[12]
+[14]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1110,11 +1109,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[13]
+[15]
 Chapter 4.
 
 
-[14
+[16
 
 ]
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10.95> not available
@@ -1134,7 +1133,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[15]
+[17]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1143,18 +1142,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[16]
+[18]
 Chapter 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1168--1170
-[]\T1/qtm/m/n/10.95 Kod: [][]$https : / / github . com / Broksonn / Wydajnosc _
- Skalowanie _ i _ Replikacja / tree /
- []
-
 No file Sprawozdanie.ind.
 
 
-[17
+[19
 
 ] (Sprawozdanie.aux)
  ***********
@@ -1165,9 +1158,9 @@ Package rerunfilecheck Info: File `Sprawozdanie.out' has not changed.
 (rerunfilecheck)             Checksum: D20ED9DBAADD026B1E53456A4BC04C62;7954.
  ) 
 Here is how much of TeX's memory you used:
- 20366 strings out of 468221
- 368437 string characters out of 5431924
- 850887 words of memory out of 5000000
+ 20365 strings out of 468221
+ 368573 string characters out of 5431924
+ 850901 words of memory out of 5000000
  48411 multiletter control sequences out of 15000+600000
  685258 words of font info for 98 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1187,9 +1180,9 @@ C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt
 .pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts
 /t1xtt.pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/t
 xfonts/tcxtt.pfb>
-Output written on Sprawozdanie.pdf (19 pages, 287565 bytes).
+Output written on Sprawozdanie.pdf (19 pages, 286872 bytes).
 PDF statistics:
- 399 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
+ 396 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
  389 words of extra memory for PDF output out of 10000 (max. 10000000)
 
