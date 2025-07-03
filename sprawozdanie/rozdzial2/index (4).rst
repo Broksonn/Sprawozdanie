@@ -1,6 +1,3 @@
-Przegląd literatury
--------------------
-
 Wydajność, skalowanie i replikacja
 ==================================
 
