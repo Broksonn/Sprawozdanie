@@ -6,6 +6,5 @@ Przeprowadzony projekt oraz analiza wykazały, że zaprojektowana baza danych sp
 Spis repozytoriów
 ------------------
 
-#. Sprawozdanie: https://github.com/Broksonn/Sprawozdanie.git
+#. Sprawozdanie i kod: https://github.com/Broksonn/Sprawozdanie.git
 #. Przegląd literatury: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja.git
-#. Kod: https://github.com/Broksonn/Wydajnosc_Skalowanie_i_Replikacja/tree/8c84d3d13225e69815b04f28e9805a332ecfcd62/sprawozdanie/kod
