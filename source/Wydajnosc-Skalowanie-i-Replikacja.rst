@@ -211,3 +211,29 @@ Testy dysków sprawdzają szybkość operacji odczytu i zapisu, co jest kluczowe
 Podsumowanie
 --------------
 W pracy przedstawiono kluczowe zagadnienia związane z zarządzaniem bazami danych, w tym rodzaje replikacji, metody kontroli dostępu użytkowników, limity systemowe oraz znaczenie testów wydajności komponentów sprzętowych. Omówiono zalety i wady replikacji, takie jak zwiększenie dostępności czy ryzyko niespójności danych. Scharakteryzowano mechanizmy uwierzytelniania i autoryzacji, które zapewniają bezpieczeństwo informacji, oraz wskazano, jak limity zasobów wpływają na działanie systemu. Zwrócono także uwagę na rolę testów pamięci RAM, procesora i dysków w optymalizacji wydajności środowiska bazodanowego. Całość podkreśla znaczenie świadomego projektowania i utrzymywania infrastruktury baz danych w celu zapewnienia jej niezawodności, bezpieczeństwa i wysokiej efektywności pracy.
+
+
+Bibliografia
+--------------
+[1] PostgreSQL Documentation – Performance Tips
+https://www.postgresql.org/docs/current/performance-tips.html
+
+[2] SQLite Documentation – Query Optimizer Overview
+https://sqlite.org/optoverview.html
+
+[3] F. Hecht, Scaling Database Systems
+https://www.cockroachlabs.com/docs/stable/scaling-your-database.html
+
+[4] DigitalOcean, How To Optimize Queries and Tables in PostgreSQL
+https://www.digitalocean.com/community/tutorials/how-to-optimize-queries-and-tables-in-postgresql
+
+[5] PostgreSQL Documentation – High Availability, Load Balancing, and Replication
+https://www.postgresql.org/docs/current/different-replication-solutions.html
+
+[6] SQLite Documentation – How Indexes Work
+https://www.sqlite.org/queryplanner.html
+
+[7] Redgate, The Importance of Database Performance Testing
+https://www.red-gate.com/simple-talk/sql/performance/the-importance-of-database-performance-testing/
+
+[8] Materiały kursowe przedmiotu „Bazy Danych”, Politechnika Wrocławska, Piotr Czaja.
