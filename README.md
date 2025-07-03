@@ -1,2 +1,2 @@
-# Przegląd literatury i raport z zajęć
+# Przegląd literatury i raport/sprawozdanie z zajęć
 
