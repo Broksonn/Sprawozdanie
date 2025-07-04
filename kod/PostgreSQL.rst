@@ -1,6 +1,3 @@
-Kod PostgreSQL
-==================
-
 from sqlalchemy import create_engine, text
 import simplejson
 import pandas as pd
