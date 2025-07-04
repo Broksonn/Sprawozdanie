@@ -2,7 +2,6 @@ Kod bazy danych:
 =====================
 
 .. code-block:: python
-
 from sqlalchemy import create_engine, text
 import simplejson
 import pandas as pd
