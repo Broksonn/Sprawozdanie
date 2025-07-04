@@ -31,3 +31,6 @@
 [submodule "source/rozdzial2/Bezpieczenstwo"]
 	path = source/rozdzial2/Bezpieczenstwo
 	url = https://github.com/BlazejUl/bezpieczenstwo.git
+[submodule "source/rozdzial2/Monitorowanie-i-diagnostyka"]
+	path = source/rozdzial2/Monitorowanie-i-diagnostyka
+	url = https://github.com/GrzegorzSzczepanek/repo-wspolne.git

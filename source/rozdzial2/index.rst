@@ -11,3 +11,4 @@ Poniżej zamieszczono dokumentacje poszczególnych przeglądów literatury:
    Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych
    Konfiguracja_baz_danych/Konfiguracja_baz_danych
    Bezpieczenstwo/index
+   Monitorowanie-i-diagnostyka/index

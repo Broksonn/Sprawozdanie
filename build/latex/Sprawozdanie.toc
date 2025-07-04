@@ -118,22 +118,52 @@
 \contentsline {subsubsection}{Szyfrowanie na poziomie kolumn z użyciem pgcrypto}{29}{subsubsection*.80}%
 \contentsline {subsubsection}{Szyfrowanie na poziomie aplikacji}{30}{subsubsection*.81}%
 \contentsline {subsubsection}{Zarządzanie kluczami szyfrującymi}{30}{subsubsection*.82}%
-\contentsline {chapter}{\numberline {3}Projektowanie bazy danych \sphinxhyphen {} modele}{31}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Wprowadzenie}{31}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Model Konceptualny}{31}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Model Logiczny}{32}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Model Fizyczny}{32}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Przykładowe rekordy}{33}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Tabela Specialization}{33}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Tabela Doctor}{33}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Tabela Patient}{33}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Tabela Visit}{34}{subsection.3.5.4}%
-\contentsline {chapter}{\numberline {4}Analiza Bazy danych i optymalizacja zapytań}{35}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analiza normalizacji}{35}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Model logiczny jest w 3NF:}{35}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Potencjalne problemy wydajnościowe}{35}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Strategie optymalizacji}{35}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Prezentacja skryptów wspomagających}{36}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Wnioski}{37}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{38}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Spis repozytoriów}{38}{section.5.1}%
+\contentsline {section}{\numberline {2.5}Monitorowanie i diagnostyka}{30}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Wstęp}{30}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Monitorowanie Sesji i Użytkowników}{31}{subsection.2.5.2}%
+\contentsline {subsubsection}{Analiza Aktywności Użytkowników}{31}{subsubsection*.83}%
+\contentsline {subsubsection}{Zarządzanie Zasobami i Limity}{31}{subsubsection*.84}%
+\contentsline {subsubsection}{Wykrywanie Problemów z Blokadami}{31}{subsubsection*.85}%
+\contentsline {subsection}{\numberline {2.5.3}Monitorowanie Dostępu do Tabel i Operacji na Danych}{31}{subsection.2.5.3}%
+\contentsline {subsubsection}{Analiza Użycia Danych}{31}{subsubsection*.86}%
+\contentsline {subsubsection}{Wykrywanie Nieprawidłowych Zapytań}{32}{subsubsection*.87}%
+\contentsline {subsubsection}{Bezpieczeństwo i Zgodność}{32}{subsubsection*.88}%
+\contentsline {subsection}{\numberline {2.5.4}Monitorowanie Logów i Raportowanie Błędów}{32}{subsection.2.5.4}%
+\contentsline {subsubsection}{Analiza Logów Systemowych}{32}{subsubsection*.89}%
+\contentsline {subsubsection}{Automatyczne Raportowanie i Alerty}{32}{subsubsection*.90}%
+\contentsline {subsubsection}{Konfiguracja Logowania dla pgBadger}{33}{subsubsection*.91}%
+\contentsline {subsection}{\numberline {2.5.5}Monitorowanie na Poziomie Systemu Operacyjnego}{33}{subsection.2.5.5}%
+\contentsline {subsubsection}{Narzędzia Systemowe}{33}{subsubsection*.92}%
+\contentsline {subsubsection}{Integracja z Narzędziami Zewnętrznymi}{33}{subsubsection*.93}%
+\contentsline {subsection}{\numberline {2.5.6}Narzędzia Monitorowania PostgreSQL}{33}{subsection.2.5.6}%
+\contentsline {subsubsection}{Narzędzia Open Source}{33}{subsubsection*.94}%
+\contentsline {subsubsection}{Rozwiązania Komercyjne}{34}{subsubsection*.95}%
+\contentsline {subsubsection}{Zabbix dla PostgreSQL}{34}{subsubsection*.96}%
+\contentsline {subsection}{\numberline {2.5.7}Najlepsze Praktyki Monitorowania}{34}{subsection.2.5.7}%
+\contentsline {subsubsection}{Ustanawianie Baselines Wydajności}{34}{subsubsection*.97}%
+\contentsline {subsubsection}{Korelacja Metryk Międzysystemowych}{35}{subsubsection*.98}%
+\contentsline {subsubsection}{Konfiguracja Efektywnych Alertów}{35}{subsubsection*.99}%
+\contentsline {subsection}{\numberline {2.5.8}Monitorowanie Wysokiej Dostępności}{35}{subsection.2.5.8}%
+\contentsline {subsubsection}{Monitorowanie Statusu Replikacji}{35}{subsubsection*.100}%
+\contentsline {subsubsection}{Weryfikacja Spójności}{35}{subsubsection*.101}%
+\contentsline {subsection}{\numberline {2.5.9}Wniosek}{36}{subsection.2.5.9}%
+\contentsline {subsection}{\numberline {2.5.10}Bibliografia:}{36}{subsection.2.5.10}%
+\contentsline {chapter}{\numberline {3}Projektowanie bazy danych \sphinxhyphen {} modele}{38}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wprowadzenie}{38}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Model Konceptualny}{38}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Model Logiczny}{39}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Model Fizyczny}{39}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Przykładowe rekordy}{40}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Tabela Specialization}{40}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Tabela Doctor}{40}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Tabela Patient}{40}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Tabela Visit}{41}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}Analiza Bazy danych i optymalizacja zapytań}{42}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analiza normalizacji}{42}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Model logiczny jest w 3NF:}{42}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Potencjalne problemy wydajnościowe}{42}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Strategie optymalizacji}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Prezentacja skryptów wspomagających}{43}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Wnioski}{44}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Spis repozytoriów}{45}{section.5.1}%

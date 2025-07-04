@@ -14,3 +14,4 @@ Badania literaturowe:
 #. Sprzęt dla bazy danych: https://github.com/oszczeda/Sprzet-dla-bazy-danych.git
 #. Konfiguracja baz danych: https://github.com/Chaiolites/Konfiguracja_baz_danych.git
 #. Bezpieczeństwo: https://github.com/BlazejUl/bezpieczenstwo.git
+#. Monitorowanie i diagnostyka: https://github.com/GrzegorzSzczepanek/repo-wspolne.git
