@@ -8,6 +8,6 @@ Poniżej zamieszczono dokumentacje poszczególnych przeglądów literatury:
    :numbered:
 
    Wydajnosc-Skalowanie-i-Replikacja/index
-   Sprzet-dla-bazy-danych/index
-   Konfiguracja_baz_danych/index
+   Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych
+   Konfiguracja_baz_danych/Konfiguracja_baz_danych
   

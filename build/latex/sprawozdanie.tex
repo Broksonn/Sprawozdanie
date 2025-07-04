@@ -561,6 +561,1168 @@ W pracy przedstawiono kluczowe zagadnienia związane z zarządzaniem bazami dany
 \sphinxstepscope
 
 
+\section{Sprzęt dla baz danych}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:sprzet-dla-baz-danych}}\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych::doc}}
+
+\subsection{Wstęp}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:wstep}}
+\sphinxAtStartPar
+Systemy zarządzania bazami danych (DBMS) są fundamentem współczesnych aplikacji i usług \textendash{} od rozbudowanych systemów transakcyjnych, przez aplikacje internetowe, aż po urządzenia mobilne czy systemy wbudowane. W zależności od zastosowania i skali projektu, wybór odpowiedniego silnika bazodanowego oraz towarzyszącej mu infrastruktury sprzętowej ma kluczowe znaczenie dla zapewnienia wydajności, stabilności i niezawodności systemu
+
+
+\subsection{Sprzęt dla bazy danych PostgreSQL}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:sprzet-dla-bazy-danych-postgresql}}
+\sphinxAtStartPar
+PostgreSQL to potężny system RDBMS, ceniony za swoją skalowalność, wsparcie dla zaawansowanych zapytań i dużą elastyczność. Jego efektywne działanie zależy w dużej mierze od odpowiednio dobranej infrastruktury sprzętowej.
+
+
+\subsubsection{Procesor}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:procesor}}
+\sphinxAtStartPar
+PostgreSQL obsługuje wiele wątków, jednak pojedyncze zapytania zazwyczaj są wykonywane jednordzeniowo. Z tego względu optymalny procesor powinien cechować się zarówno wysokim taktowaniem jak i odpowiednią liczbą rdzeni do równoczesnej obsługi wielu zapytań. W środowiskach produkcyjnych najczęściej wykorzystuje się procesory serwerowe takie jak Intel Xeon czy AMD EPYC, które oferują zarówno wydajność, jak i niezawodność.
+
+
+\subsubsection{Pamięć operacyjna}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:pamiec-operacyjna}}
+\sphinxAtStartPar
+RAM odgrywa istotną rolę w przetwarzaniu danych, co znacząco wpływa na wydajność operacji. PostgreSQL efektywnie wykorzystuje dostępne zasoby pamięci do cache’owania, dlatego im więcej pamięci RAM tym lepiej. W praktyce, minimalne pojemności dla mniejszych baz to około 16\textendash{}32 GB, natomiast w środowiskach produkcyjnych i analitycznych często stosuje się od 64 GB do nawet kilkuset.
+
+
+\subsubsection{Przestrzeń dyskowa}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:przestrzen-dyskowa}}
+\sphinxAtStartPar
+Dyski twarde to krytyczny element wpływający na szybkość działania bazy. Zdecydowanie zaleca się korzystanie z dysków SSD (najlepiej NVMe), które zapewniają wysoką przepustowość i niskie opóźnienia. Warto zastosować konfigurację RAID 10, która łączy szybkość z redundancją.
+
+
+\subsubsection{Sieć internetowa}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:siec-internetowa}}
+\sphinxAtStartPar
+W przypadku PostgreSQL działającego w klastrach, środowiskach chmurowych lub przy replikacji danych, wydajne połączenie sieciowe ma kluczowe znaczenie. Standardem są interfejsy 1 Gb/s, lecz w dużych bazach danych stosuje się nawet 10 Gb/s i więcej. Liczy się nie tylko przepustowość, ale też niskie opóźnienia i niezawodność.
+
+
+\subsubsection{Zasilanie}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:zasilanie}}
+\sphinxAtStartPar
+Niezawodność zasilania to jeden z filarów bezpieczeństwa danych. Zaleca się stosowanie zasilaczy redundantnych oraz zasilania awaryjnego UPS, które umożliwia bezpieczne wyłączenie systemu w przypadku awarii. Można użyć własnych generatorów prądu.
+
+
+\subsubsection{Chłodzenie}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:chlodzenie}}
+\sphinxAtStartPar
+Intensywna praca serwera PostgreSQL generuje duże ilości ciepła. Wydajne chłodzenie powietrzne, a często nawet cieczowe jest potrzebne by utrzymać stabilność systemu i przedłużyć żywotność komponentów. W profesjonalnych serwerowniach stosuje się zaawansowane systemy klimatyzacji i kontroli termicznej.
+
+
+\subsection{Sprzęt dla bazy danych SQLite}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:sprzet-dla-bazy-danych-sqlite}}
+\sphinxAtStartPar
+SQLite to lekki, samodzielny silnik bazodanowy, nie wymagający uruchamiania oddzielnego serwera. Znajduje zastosowanie m.in. w aplikacjach mobilnych, przeglądarkach internetowych, systemach IoT czy oprogramowaniu wbudowanym.
+
+
+\subsubsection{Procesor}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id1}}
+\sphinxAtStartPar
+SQLite działa lokalnie na urządzeniu użytkownika. Dla prostych operacji wystarczy procesor z jednym, albo dwoma rdzeniami. W bardziej wymagających zastosowaniach (np. filtrowanie dużych zbiorów danych) przyda się szybszy CPU. Wielowątkowość nie daje istotnych korzyści.
+
+
+\subsubsection{Pamięć operacyjna}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id2}}
+\sphinxAtStartPar
+SQLite potrzebuje niewielkiej ilości pamięci RAM w wielu przypadkach wystarcza 256MB do 1GB. Jednak dla komfortowej pracy z większymi zbiorami danych warto zapewnić nieco więcej pamięci, czyli 2 GB lub więcej, szczególnie w aplikacjach desktopowych lub mobilnych.
+
+
+\subsubsection{Przestrzeń dyskowa}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id3}}
+\sphinxAtStartPar
+Dane w SQLite zapisywane są w jednym pliku. Wydajność operacji zapisu/odczytu zależy od nośnika. Dyski SSD lub szybkie karty pamięci są preferowane. W przypadku urządzeń wbudowanych, kluczowe znaczenie ma trwałość nośnika, zwłaszcza przy częstym zapisie danych.
+
+
+\subsubsection{Sieć internetowa}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id4}}
+\sphinxAtStartPar
+SQLite nie wymaga połączeń sieciowych \textendash{} działa lokalnie. W sytuacjach, gdzie dane są synchronizowane z serwerem lub przenoszone przez sieć (np. w aplikacjach mobilnych), znaczenie ma jakość połączenia (Wi\sphinxhyphen{}Fi, LTE), choć wpływa to bardziej na komfort użytkowania aplikacji niż na samą bazę.
+
+
+\subsubsection{Zasilanie}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id5}}
+\sphinxAtStartPar
+W systemach mobilnych i IoT efektywne zarządzanie energią jest kluczowe. Aplikacje powinny ograniczać zbędne operacje odczytu i zapisu, by niepotrzebnie nie obciążać procesora i nie zużywać baterii. W zastosowaniach stacjonarnych problem ten zazwyczaj nie występuje.
+
+
+\subsubsection{Chłodzenie}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:id6}}
+\sphinxAtStartPar
+SQLite nie generuje dużego obciążenia cieplnego. W większości przypadków wystarczy pasywne chłodzenie w zamkniętych obudowach, lecz warto zadbać o minimalny przepływ powietrza.
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial2/Sprzet-dla-bazy-danych/source/SprzetDlaBazyDanych:podsumowanie}}
+\sphinxAtStartPar
+Zarówno PostgreSQL, jak i SQLite pełnią istotne role w ekosystemie baz danych, lecz ich wymagania sprzętowe są diametralnie różne. PostgreSQL, jako system serwerowy, wymaga zaawansowanego i wydajnego sprzętu: mocnych procesorów, dużej ilości RAM, szybkich dysków, niezawodnej sieci, zasilania i chłodzenia.
+Z kolei SQLite działa doskonale na skromniejszych zasobach, stawiając na lekkość i prostotę implementacyjną.
+Dostosowanie sprzętu do konkretnego silnika DBMS i charakterystyki aplikacji pozwala nie tylko na osiągnięcie optymalnej wydajności, ale też gwarantuje stabilność i bezpieczeństwo działania całego systemu.
+
+\sphinxstepscope
+
+
+\section{Sprawozdanie: Konfiguracja i Zarządzanie Bazą Danych}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:sprawozdanie-konfiguracja-i-zarzadzanie-baza-danych}}\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Authors}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Piotr Domagała
+
+\item {} 
+\sphinxAtStartPar
+Piotr Kotuła
+
+\item {} 
+\sphinxAtStartPar
+Dawid Pasikowski
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+
+\subsection{1. Konfiguracja bazy danych}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:konfiguracja-bazy-danych}}
+\sphinxAtStartPar
+Wprowadzenie do tematu konfiguracji bazy danych obejmuje podstawowe informacje na temat zarządzania i dostosowywania ustawień baz danych w systemach informatycznych. Konfiguracja ta jest kluczowa dla zapewnienia bezpieczeństwa, wydajności oraz stabilności działania aplikacji korzystających z bazy danych. Obejmuje m.in. określenie parametrów połączenia, zarządzanie użytkownikami, uprawnieniami oraz optymalizację działania systemu bazodanowego.
+
+
+\subsection{2. Lokalizacja i struktura katalogów}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:lokalizacja-i-struktura-katalogow}}
+\sphinxAtStartPar
+Każda baza danych przechowuje swoje pliki w określonych lokalizacjach systemowych, zależnie od używanego silnika. Przykładowe lokalizacje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{PostgreSQL}: \sphinxcode{\sphinxupquote{/var/lib/pgsql/data}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{MySQL}: \sphinxcode{\sphinxupquote{/var/lib/mysql}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{SQL Server}: \sphinxcode{\sphinxupquote{C:\textbackslash{}Program Files\textbackslash{}Microsoft SQL Server}}
+
+\end{itemize}
+
+\sphinxAtStartPar
+Struktura katalogów obejmuje katalog główny bazy danych oraz podkatalogi na pliki danych, logi, kopie zapasowe i pliki konfiguracyjne.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład}: W dużych środowiskach produkcyjnych często stosuje się osobne dyski do przechowywania plików danych i logów transakcyjnych. Takie rozwiązanie pozwala na zwiększenie wydajności operacji zapisu oraz minimalizowanie ryzyka utraty danych.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Dobra praktyka}: Zaleca się, aby katalogi z danymi i logami były regularnie monitorowane pod kątem dostępnego miejsca na dysku. Przepełnienie któregoś z nich może doprowadzić do zatrzymania pracy bazy danych.
+
+
+\subsection{3. Katalog danych}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:katalog-danych}}
+\sphinxAtStartPar
+Jest to miejsce, gdzie fizycznie przechowywane są wszystkie pliki związane z bazą danych, takie jak:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Pliki tabel i indeksów
+
+\item {} 
+\sphinxAtStartPar
+Dzienniki transakcji
+
+\item {} 
+\sphinxAtStartPar
+Pliki tymczasowe
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykładowo}: W PostgreSQL katalog danych to \sphinxcode{\sphinxupquote{/var/lib/pgsql/data}}, gdzie znajdują się zarówno pliki z danymi, jak i główny plik konfiguracyjny \sphinxcode{\sphinxupquote{postgresql.conf}}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Wskazówka}: Dostęp do katalogu danych powinien być ograniczony tylko do uprawnionych użytkowników systemu, co zwiększa bezpieczeństwo i zapobiega przypadkowym lub celowym modyfikacjom plików bazy.
+
+
+\subsection{4. Podział konfiguracji na podpliki}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:podzial-konfiguracji-na-podpliki}}
+\sphinxAtStartPar
+Konfiguracja systemu bazodanowego może być rozbita na kilka mniejszych, wyspecjalizowanych plików, np.:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{postgresql.conf}} \textendash{} główne ustawienia serwera
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_hba.conf}} \textendash{} reguły autoryzacji i dostępu
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_ident.conf}} \textendash{} mapowanie użytkowników systemowych na użytkowników PostgreSQL
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład}: Jeśli administrator chce zmienić jedynie sposób autoryzacji użytkowników, edytuje tylko plik \sphinxcode{\sphinxupquote{pg\_hba.conf}}, bez ryzyka wprowadzenia niezamierzonych zmian w innych częściach konfiguracji.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Dobra praktyka}: Rozdzielenie konfiguracji na podpliki ułatwia zarządzanie, pozwala szybciej lokalizować błędy i minimalizuje ryzyko konfliktów podczas aktualizacji lub wdrażania zmian.
+
+
+\subsection{5. Katalog Konfiguracyjny}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:katalog-konfiguracyjny}}
+\sphinxAtStartPar
+To miejsce przechowywania wszystkich plików konfiguracyjnych bazy danych, takich jak główny plik konfiguracyjny, pliki z ustawieniami użytkowników, uprawnień czy harmonogramów zadań.
+
+\sphinxAtStartPar
+Typowe lokalizacje to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{/etc}} (np. \sphinxcode{\sphinxupquote{my.cnf}} dla MySQL)
+
+\item {} 
+\sphinxAtStartPar
+Katalog danych bazy (np. \sphinxcode{\sphinxupquote{/var/lib/pgsql/data}} dla PostgreSQL)
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład}: W przypadku awarii systemu administrator może szybko przywrócić działanie bazy, kopiując wcześniej zapisane pliki konfiguracyjne z katalogu konfiguracyjnego.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Wskazówka}: Regularne wykonywanie kopii zapasowych katalogu konfiguracyjnego jest kluczowe \textendash{} utrata tych plików może uniemożliwić uruchomienie bazy danych lub spowodować utratę ważnych ustawień systemowych.
+
+
+\subsection{6. Katalog logów i struktura katalogów w PostgreSQL}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:katalog-logow-i-struktura-katalogow-w-postgresql}}
+\sphinxAtStartPar
+\sphinxstylestrong{Katalog logów}
+PostgreSQL zapisuje logi w różnych lokalizacjach, zależnie od systemu operacyjnego:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Na Debianie/Ubuntu: \sphinxcode{\sphinxupquote{/var/log/postgresql}}
+
+\item {} 
+\sphinxAtStartPar
+Na Red Hat/CentOS: \sphinxcode{\sphinxupquote{/var/lib/pgsql/\textless{}wersja\textgreater{}/data/pg\_log}}
+
+\end{itemize}
+
+\sphinxAtStartPar
+\textgreater{} Uwaga: Aby zapisywać logi do pliku, należy upewnić się, że opcja \sphinxcode{\sphinxupquote{logging\_collector}} jest włączona w pliku \sphinxcode{\sphinxupquote{postgresql.conf}}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Struktura katalogów PostgreSQL}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{base}\PYG{o}{/}         \PYG{c+c1}{\PYGZsh{} dane użytkownika \textendash{} jedna podkatalog dla każdej bazy danych}
+\PYG{k}{global}\PYG{o}{/}       \PYG{c+c1}{\PYGZsh{} dane wspólne dla wszystkich baz (np. użytkownicy)}
+\PYG{n}{pg\PYGZus{}wal}\PYG{o}{/}       \PYG{c+c1}{\PYGZsh{} pliki WAL (Write\PYGZhy{}Ahead Logging)}
+\PYG{n}{pg\PYGZus{}stat}\PYG{o}{/}      \PYG{c+c1}{\PYGZsh{} statystyki działania serwera}
+\PYG{n}{pg\PYGZus{}log}\PYG{o}{/}       \PYG{c+c1}{\PYGZsh{} logi (jeśli skonfigurowane)}
+\PYG{n}{pg\PYGZus{}tblspc}\PYG{o}{/}    \PYG{c+c1}{\PYGZsh{} dowiązania do tablespace’ów}
+\PYG{n}{pg\PYGZus{}twophase}\PYG{o}{/}  \PYG{c+c1}{\PYGZsh{} dane dla transakcji dwufazowych}
+\PYG{n}{postgresql}\PYG{o}{.}\PYG{n}{conf}  \PYG{c+c1}{\PYGZsh{} główny plik konfiguracyjny}
+\PYG{n}{pg\PYGZus{}hba}\PYG{o}{.}\PYG{n}{conf}      \PYG{c+c1}{\PYGZsh{} kontrola dostępu}
+\PYG{n}{pg\PYGZus{}ident}\PYG{o}{.}\PYG{n}{conf}    \PYG{c+c1}{\PYGZsh{} mapowanie użytkowników systemowych na bazodanowych}
+\end{sphinxVerbatim}
+
+
+\subsection{7. Przechowywanie i lokalizacja plików konfiguracyjnych}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:przechowywanie-i-lokalizacja-plikow-konfiguracyjnych}}
+\sphinxAtStartPar
+Główne pliki konfiguracyjne:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{postgresql.conf}} \textendash{} konfiguracja instancji PostgreSQL (parametry wydajności, logowania, lokalizacji itd.)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_hba.conf}} \textendash{} kontrola dostępu (adresy IP, użytkownicy, metody autoryzacji)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_ident.conf}} \textendash{} mapowanie użytkowników systemowych na użytkowników bazodanowych
+
+\end{itemize}
+
+
+\subsection{8. Podstawowe parametry konfiguracyjne}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:podstawowe-parametry-konfiguracyjne}}
+\sphinxAtStartPar
+\sphinxstylestrong{Słuchanie połączeń:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{listen\PYGZus{}addresses} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{localhost}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{port} \PYG{o}{=} \PYG{l+m+mi}{5432}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Pamięć i wydajność:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{shared\PYGZus{}buffers} \PYG{o}{=} \PYG{l+m+mi}{512}\PYG{n}{MB}         \PYG{c+c1}{\PYGZsh{} pamięć współdzielona}
+\PYG{n}{work\PYGZus{}mem} \PYG{o}{=} \PYG{l+m+mi}{4}\PYG{n}{MB}                 \PYG{c+c1}{\PYGZsh{} pamięć na operacje sortowania/złączeń}
+\PYG{n}{maintenance\PYGZus{}work\PYGZus{}mem} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{n}{MB}    \PYG{c+c1}{\PYGZsh{} dla operacji VACUUM, CREATE INDEX}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Autovacuum:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{autovacuum} \PYG{o}{=} \PYG{n}{on}
+\PYG{n}{autovacuum\PYGZus{}naptime} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{n+nb}{min}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Konfiguracja pliku} \sphinxcode{\sphinxupquote{pg\_hba.conf}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} TYPE  DATABASE  USER  ADDRESS         METHOD}
+\PYG{n}{local}   \PYG{n+nb}{all}       \PYG{n+nb}{all}   \PYG{n}{md5}
+\PYG{n}{host}    \PYG{n+nb}{all}       \PYG{n+nb}{all}   \PYG{l+m+mf}{192.168}\PYG{l+m+mf}{.0}\PYG{l+m+mf}{.0}\PYG{o}{/}\PYG{l+m+mi}{24}  \PYG{n}{md5}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Konfiguracja pliku} \sphinxcode{\sphinxupquote{pg\_ident.conf}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} MAPNAME      SYSTEM\PYGZhy{}USERNAME   PG\PYGZhy{}USERNAME}
+\PYG{n}{local\PYGZus{}users}  \PYG{n}{ubuntu}            \PYG{n}{postgres}
+\PYG{n}{local\PYGZus{}users}  \PYG{n}{jan\PYGZus{}kowalski}      \PYG{n}{janek\PYGZus{}db}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Można użyć tej mapy w pliku \sphinxcode{\sphinxupquote{pg\_hba.conf}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{local}   \PYG{n+nb}{all}     \PYG{n+nb}{all}     \PYG{n}{peer} \PYG{n+nb}{map}\PYG{o}{=}\PYG{n}{local\PYGZus{}users}
+\end{sphinxVerbatim}
+
+
+\subsection{9. Wstęp teoretyczny}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:wstep-teoretyczny}}
+\sphinxAtStartPar
+Systemy zarządzania bazą danych (DBMS \textendash{} \sphinxstyleemphasis{Database Management System}) umożliwiają tworzenie, modyfikowanie i zarządzanie danymi. Ułatwiają organizację danych, zapewniają integralność, bezpieczeństwo oraz możliwość jednoczesnego dostępu wielu użytkowników.
+
+
+\subsubsection{9.1 Klasyfikacja systemów zarządzania bazą danych}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:klasyfikacja-systemow-zarzadzania-baza-danych}}
+\sphinxAtStartPar
+Systemy DBMS można klasyfikować według:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Architektura działania:}
+\sphinxhyphen{} \sphinxstyleemphasis{Klient\sphinxhyphen{}serwer} \textendash{} system działa jako niezależna usługa (np. PostgreSQL).
+\sphinxhyphen{} \sphinxstyleemphasis{Osadzony (embedded)} \textendash{} baza danych jest integralną częścią aplikacji (np. SQLite).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Rodzaj danych i funkcjonalność:}
+\sphinxhyphen{} \sphinxstyleemphasis{Relacyjne (RDBMS)} \textendash{} oparte na tabelach, kluczach i SQL.
+\sphinxhyphen{} \sphinxstyleemphasis{Nierelacyjne (NoSQL)} \textendash{} oparte na dokumentach, modelu klucz\sphinxhyphen{}wartość lub grafach.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Oba systemy \textendash{} \sphinxstylestrong{SQLite} oraz \sphinxstylestrong{PostgreSQL} \textendash{} należą do relacyjnych baz danych, lecz różnią się architekturą, wydajnością, konfiguracją i przeznaczeniem.
+
+
+\subsubsection{9.2 SQLite}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:sqlite}}
+\sphinxAtStartPar
+SQLite to lekka, bezserwerowa baza danych typu embedded, gdzie cała baza znajduje się w jednym pliku. Dzięki temu jest bardzo wygodna przy tworzeniu aplikacji lokalnych, mobilnych oraz projektów prototypowych.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Cechy SQLite:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Brak osobnego procesu serwera \textendash{} baza działa w kontekście aplikacji.
+
+\item {} 
+\sphinxAtStartPar
+Niskie wymagania systemowe \textendash{} brak potrzeby instalacji i konfiguracji.
+
+\item {} 
+\sphinxAtStartPar
+Baza przechowywana jako pojedynczy plik (\sphinxstyleemphasis{.sqlite} lub \sphinxstyleemphasis{.db}).
+
+\item {} 
+\sphinxAtStartPar
+Pełna obsługa SQL (z pewnymi ograniczeniami) \textendash{} wspiera standard SQL\sphinxhyphen{}92.
+
+\item {} 
+\sphinxAtStartPar
+Ograniczona skalowalność przy wielu użytkownikach.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zastosowanie:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Aplikacje desktopowe (np. Firefox, VS Code).
+
+\item {} 
+\sphinxAtStartPar
+Aplikacje mobilne (Android, iOS).
+
+\item {} 
+\sphinxAtStartPar
+Małe i średnie systemy bazodanowe.
+
+\end{itemize}
+
+
+\subsubsection{9.3 PostgreSQL}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:postgresql}}
+\sphinxAtStartPar
+PostgreSQL to zaawansowany system relacyjnej bazy danych typu klient\sphinxhyphen{}serwer, rozwijany jako projekt open\sphinxhyphen{}source. Zapewnia pełne wsparcie dla SQL oraz liczne rozszerzenia (np. typy przestrzenne, JSON).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Cechy PostgreSQL:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Architektura klient\sphinxhyphen{}serwer \textendash{} działa jako oddzielny proces.
+
+\item {} 
+\sphinxAtStartPar
+Wysoka skalowalność i niezawodność \textendash{} obsługuje wielu użytkowników, złożone zapytania, replikację.
+
+\item {} 
+\sphinxAtStartPar
+Obsługa transakcji, MVCC, indeksowania oraz zarządzania uprawnieniami.
+
+\item {} 
+\sphinxAtStartPar
+Rozszerzalność \textendash{} możliwość definiowania własnych typów danych, funkcji i procedur.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Konfiguracja:}
+Plikami konfiguracyjnymi są:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{postgresql.conf}} \textendash{} ustawienia ogólne (port, ścieżki, pamięć, logi).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_hba.conf}} \textendash{} reguły autoryzacji.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_ident.conf}} \textendash{} mapowanie użytkowników systemowych na bazodanowych.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Zastosowanie:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Systemy biznesowe, bankowe, analityczne.
+
+\item {} 
+\sphinxAtStartPar
+Aplikacje webowe i serwery aplikacyjne.
+
+\item {} 
+\sphinxAtStartPar
+Środowiska o wysokich wymaganiach bezpieczeństwa i kontroli dostępu.
+
+\end{itemize}
+
+
+\subsubsection{9.4 Cel użycia obu systemów}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:cel-uzycia-obu-systemow}}
+\sphinxAtStartPar
+W ramach zajęć wykorzystano zarówno \sphinxstylestrong{SQLite} (dla szybkiego startu i analizy zapytań bez instalacji serwera), jak i \sphinxstylestrong{PostgreSQL} (dla nauki konfiguracji, zarządzania użytkownikami, uprawnieniami oraz obsługi złożonych operacji).
+
+
+\subsection{10. Zarządzanie konfiguracją w PostgreSQL}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:zarzadzanie-konfiguracja-w-postgresql}}
+\sphinxAtStartPar
+PostgreSQL oferuje rozbudowany i elastyczny mechanizm konfiguracji, umożliwiający precyzyjne dostosowanie działania bazy danych do potrzeb użytkownika oraz środowiska (lokalnego, deweloperskiego, testowego czy produkcyjnego).
+
+
+\subsubsection{10.1 Pliki konfiguracyjne}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:pliki-konfiguracyjne}}
+\sphinxAtStartPar
+Główne pliki konfiguracyjne PostgreSQL:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{postgresql.conf} \textendash{} ustawienia dotyczące pamięci, sieci, logowania, autovacuum, planowania zapytań.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{pg\_hba.conf} \textendash{} definiuje metody uwierzytelniania i dostęp z określonych adresów.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{pg\_ident.conf} \textendash{} mapowanie nazw użytkowników systemowych na użytkowników PostgreSQL.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Pliki te zazwyczaj znajdują się w katalogu danych (np. \sphinxcode{\sphinxupquote{/var/lib/postgresql/15/main/}} lub \sphinxcode{\sphinxupquote{/etc/postgresql/15/main/}}).
+
+
+\subsubsection{10.2 Przykładowe kluczowe parametry \sphinxstyleliteralintitle{\sphinxupquote{postgresql.conf}}}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:przykladowe-kluczowe-parametry-postgresql-conf}}
+
+\begin{savenotes}\sphinxattablestart
+\sphinxthistablewithglobalstyle
+\centering
+\begin{tabulary}{\linewidth}[t]{TT}
+\sphinxtoprule
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+\sphinxstylestrong{Parametr}
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+\sphinxstylestrong{Opis}
+\\
+\sphinxmidrule
+\sphinxtableatstartofbodyhook
+\sphinxAtStartPar
+shared\_buffers
+&
+\sphinxAtStartPar
+Ilość pamięci RAM przeznaczona na bufor danych (rekomendacja: 25\textendash{}40\% RAM).
+\\
+\sphinxhline
+\sphinxAtStartPar
+work\_mem
+&
+\sphinxAtStartPar
+Pamięć dla pojedynczej operacji zapytania (np. sortowania).
+\\
+\sphinxhline
+\sphinxAtStartPar
+maintenance\_work\_mem
+&
+\sphinxAtStartPar
+Pamięć dla operacji administracyjnych (np. VACUUM, CREATE INDEX).
+\\
+\sphinxhline
+\sphinxAtStartPar
+effective\_cache\_size
+&
+\sphinxAtStartPar
+Szacunkowa ilość pamięci dostępnej na cache systemu operacyjnego.
+\\
+\sphinxhline
+\sphinxAtStartPar
+max\_connections
+&
+\sphinxAtStartPar
+Maksymalna liczba jednoczesnych połączeń z bazą danych.
+\\
+\sphinxhline
+\sphinxAtStartPar
+log\_directory
+&
+\sphinxAtStartPar
+Katalog, w którym zapisywane są logi PostgreSQL.
+\\
+\sphinxhline
+\sphinxAtStartPar
+autovacuum
+&
+\sphinxAtStartPar
+Włącza lub wyłącza automatyczne odświeżanie nieużywanych wierszy.
+\\
+\sphinxbottomrule
+\end{tabulary}
+\sphinxtableafterendhook\par
+\sphinxattableend\end{savenotes}
+
+
+\subsubsection{10.3 Sposoby zmiany konfiguracji}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:sposoby-zmiany-konfiguracji}}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Edycja pliku} \sphinxcode{\sphinxupquote{postgresql.conf}}
+
+\sphinxAtStartPar
+Zmiany są trwałe, ale wymagają restartu serwera (w niektórych przypadkach wystarczy reload).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{shared\PYGZus{}buffers} \PYG{o}{=} \PYG{l+m+mi}{512}\PYG{n}{MB}
+\PYG{n}{work\PYGZus{}mem} \PYG{o}{=} \PYG{l+m+mi}{64}\PYG{n}{MB}
+\end{sphinxVerbatim}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dynamiczna zmiana poprzez SQL}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ALTER} \PYG{n}{SYSTEM} \PYG{n}{SET} \PYG{n}{work\PYGZus{}mem} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{64MB}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\PYG{n}{SELECT} \PYG{n}{pg\PYGZus{}reload\PYGZus{}conf}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}  \PYG{c+c1}{\PYGZsh{} ładowanie zmian bez restartu}
+\end{sphinxVerbatim}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Tymczasowa zmiana dla jednej sesji}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SET} \PYG{n}{work\PYGZus{}mem} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{128MB}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\end{enumerate}
+
+
+\subsubsection{10.4 Sprawdzanie konfiguracji}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:sprawdzanie-konfiguracji}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Aby sprawdzić aktualną wartość parametru:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SHOW} \PYG{n}{work\PYGZus{}mem}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\item {} 
+\sphinxAtStartPar
+Pobranie szczegółowych informacji:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{name}\PYG{p}{,} \PYG{n}{setting}\PYG{p}{,} \PYG{n}{unit}\PYG{p}{,} \PYG{n}{context}\PYG{p}{,} \PYG{n}{source}
+\PYG{n}{FROM} \PYG{n}{pg\PYGZus{}settings}
+\PYG{n}{WHERE} \PYG{n}{name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{work\PYGZus{}mem}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\item {} 
+\sphinxAtStartPar
+Wylistowanie parametrów wymagających restartu serwera:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{name} \PYG{n}{FROM} \PYG{n}{pg\PYGZus{}settings} \PYG{n}{WHERE} \PYG{n}{context} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{postmaster}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\end{itemize}
+
+
+\subsubsection{10.5 Narzędzia pomocnicze}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:narzedzia-pomocnicze}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{pg\_ctl} \textendash{} narzędzie do zarządzania serwerem (start/stop/reload).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{psql} \textendash{} klient terminalowy PostgreSQL do wykonywania zapytań oraz operacji administracyjnych.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{pgAdmin} \textendash{} graficzne narzędzie do zarządzania bazą PostgreSQL (umożliwia edycję konfiguracji przez GUI).
+
+\end{itemize}
+
+
+\subsubsection{10.6 Kontrola dostępu i mechanizmy uwierzytelniania}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:kontrola-dostepu-i-mechanizmy-uwierzytelniania}}
+\sphinxAtStartPar
+Konfiguracja umożliwia określenie, z jakich adresów i w jaki sposób można łączyć się z bazą:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dostęp lokalny (localhost)} \textendash{} połączenia z tej samej maszyny.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Dostęp z podsieci} \textendash{} administrator może wskazać konkretne podsieci IP (np. \sphinxcode{\sphinxupquote{192.168.0.0/24}}).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Mechanizmy uwierzytelniania} \textendash{} np. \sphinxcode{\sphinxupquote{md5}}, \sphinxcode{\sphinxupquote{scram\sphinxhyphen{}sha\sphinxhyphen{}256}}, \sphinxcode{\sphinxupquote{peer}} (weryfikacja użytkownika systemowego) czy \sphinxcode{\sphinxupquote{trust}}.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Ważne, aby mechanizm \sphinxcode{\sphinxupquote{peer}} był odpowiednio skonfigurowany, gdyż umożliwia automatyczną autoryzację, jeśli nazwa użytkownika systemowego i bazy zgadza się.
+
+
+\subsection{11. Planowanie}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:planowanie}}
+\sphinxAtStartPar
+Planowanie w kontekście PostgreSQL oznacza optymalizację wykonania zapytań oraz efektywne zarządzanie zasobami.
+
+
+\subsubsection{11.1 Co to jest planowanie zapytań?}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:co-to-jest-planowanie-zapytan}}
+\sphinxAtStartPar
+Proces planowania zapytań obejmuje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Analizę składni i struktury zapytania SQL.
+
+\item {} 
+\sphinxAtStartPar
+Przegląd dostępnych statystyk dotyczących tabel, indeksów i danych.
+
+\item {} 
+\sphinxAtStartPar
+Dobór sposobu dostępu do danych (pełny skan, indeks, join, sortowanie).
+
+\item {} 
+\sphinxAtStartPar
+Tworzenie planu wykonania, czyli sekwencji operacji potrzebnych do uzyskania wyniku.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Administrator może również kontrolować częstotliwość aktualizacji statystyk (np. \sphinxcode{\sphinxupquote{default\_statistics\_target}}, \sphinxcode{\sphinxupquote{autovacuum}}).
+
+
+\subsubsection{11.2 Mechanizm planowania w PostgreSQL}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:mechanizm-planowania-w-postgresql}}
+\sphinxAtStartPar
+PostgreSQL wykorzystuje kosztowy optymalizator; przy użyciu statystyk (liczby wierszy, rozkładu danych) szacuje „koszt” różnych metod wykonania zapytania, wybierając tę, która jest najtańsza pod względem czasu i zasobów.
+
+
+\subsubsection{11.3 Statystyki i ich aktualizacja}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:statystyki-i-ich-aktualizacja}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Statystyki są tworzone przy pomocy polecenia \sphinxcode{\sphinxupquote{ANALYZE}} \textendash{} zbiera dane o rozkładzie wartości kolumn.
+
+\item {} 
+\sphinxAtStartPar
+Mechanizm autovacuum odświeża statystyki automatycznie.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ANALYZE} \PYG{p}{[}\PYG{n}{nazwa\PYGZus{}tabeli}\PYG{p}{]}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+W systemach o dużym obciążeniu planowanie uwzględnia również równoległość (parallel query).
+
+
+\subsubsection{11.4 Typy planów wykonania}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:typy-planow-wykonania}}
+\sphinxAtStartPar
+Przykładowe typy planów wykonania:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Seq Scan} \textendash{} pełny skan tabeli (gdy indeksy są niedostępne lub nieefektywne).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Index Scan} \textendash{} wykorzystanie indeksu.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Bitmap Index Scan} \textendash{} łączenie efektywności indeksów ze skanem sekwencyjnym.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Nested Loop Join} \textendash{} efektywny join dla małych zbiorów.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Hash Join} \textendash{} buduje tablicę hash dla dużych zbiorów.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Merge Join} \textendash{} stosowany, gdy dane są posortowane.
+
+\end{itemize}
+
+
+\subsubsection{11.5 Jak sprawdzić plan zapytania?}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:jak-sprawdzic-plan-zapytania}}
+\sphinxAtStartPar
+Aby zobaczyć plan wybrany przez PostgreSQL, można użyć:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{EXPLAIN} \PYG{n}{ANALYZE} \PYG{n}{SELECT} \PYG{o}{*} \PYG{n}{FROM} \PYG{n}{tabela} \PYG{n}{WHERE} \PYG{n}{kolumna} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{wartość}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{EXPLAIN}} \textendash{} wyświetla plan bez wykonania zapytania.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{ANALYZE}} \textendash{} wykonuje zapytanie i podaje rzeczywiste czasy wykonania.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykładowy wynik:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{Index} \PYG{n}{Scan} \PYG{n}{using} \PYG{n}{idx\PYGZus{}kolumna} \PYG{n}{on} \PYG{n}{tabela} \PYG{p}{(}\PYG{n}{cost}\PYG{o}{=}\PYG{l+m+mf}{0.29}\PYG{o}{.}\PYG{l+m+mf}{.8}\PYG{l+m+mf}{.56} \PYG{n}{rows}\PYG{o}{=}\PYG{l+m+mi}{3} \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{244}\PYG{p}{)}
+\PYG{n}{Index} \PYG{n}{Cond}\PYG{p}{:} \PYG{p}{(}\PYG{n}{kolumna} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{wartość}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{p}{:}\PYG{n}{text}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsubsection{11.6 Parametry planowania i optymalizacji}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:parametry-planowania-i-optymalizacji}}
+\sphinxAtStartPar
+W pliku \sphinxcode{\sphinxupquote{postgresql.conf}} można konfigurować m.in.:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{random\_page\_cost}} \textendash{} koszt odczytu strony z dysku SSD/HDD.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{cpu\_tuple\_cost}} \textendash{} koszt przetwarzania pojedynczego wiersza.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{enable\_seqscan}}, \sphinxcode{\sphinxupquote{enable\_indexscan}}, \sphinxcode{\sphinxupquote{enable\_bitmapscan}} \textendash{} włączanie/wyłączanie konkretnych typów skanów.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Dostosowanie tych parametrów pozwala zoptymalizować planowanie zgodnie ze specyfiką sprzętu i obciążenia.
+
+
+\subsection{12. Tabele \textendash{} rozmiar, planowanie i monitorowanie}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:tabele-rozmiar-planowanie-i-monitorowanie}}
+
+\subsubsection{12.1 Rozmiar tabeli}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar-tabeli}}
+\sphinxAtStartPar
+Rozmiar tabeli w PostgreSQL obejmuje dane (wiersze), strukturę, indeksy, dane TOAST oraz pliki statystyk. Do monitorowania rozmiaru stosuje się funkcje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_relation\_size()}} \textendash{} rozmiar tabeli lub pojedynczego indeksu.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_total\_relation\_size()}} \textendash{} całkowity rozmiar tabeli wraz z indeksami i TOAST.
+
+\end{itemize}
+
+
+\subsubsection{12.2 Planowanie rozmiaru i jego kontrola}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:planowanie-rozmiaru-i-jego-kontrola}}
+\sphinxAtStartPar
+Podczas projektowania bazy danych należy oszacować potencjalny rozmiar tabel, biorąc pod uwagę liczbę wierszy i rozmiar pojedynczego rekordu. PostgreSQL nie posiada sztywnego limitu (poza ograniczeniami systemu plików i 32\sphinxhyphen{}bitowym limitem liczby stron). Parametr \sphinxcode{\sphinxupquote{fillfactor}} może być stosowany do optymalizacji częstotliwości operacji UPDATE i VACUUM.
+
+
+\subsubsection{12.3 Monitorowanie rozmiaru tabel}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:monitorowanie-rozmiaru-tabel}}
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład zapytania:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{pg\PYGZus{}size\PYGZus{}pretty}\PYG{p}{(}\PYG{n}{pg\PYGZus{}total\PYGZus{}relation\PYGZus{}size}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nazwa\PYGZus{}tabeli}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Inne funkcje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_relation\_size}} \textendash{} rozmiar samej tabeli.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_indexes\_size}} \textendash{} rozmiar indeksów.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_table\_size}} \textendash{} zwraca łączny rozmiar tabeli wraz z TOAST.
+
+\end{itemize}
+
+
+\subsubsection{12.4 Planowanie na poziomie tabel}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:planowanie-na-poziomie-tabel}}
+\sphinxAtStartPar
+Administrator może wpływać na fizyczne rozmieszczenie danych poprzez:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Tablespaces} \textendash{} przenoszenie tabel lub indeksów na inne dyski/partycje.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Podział tabel (partitioning)} \textendash{} rozbijanie dużych tabel na mniejsze części.
+
+\end{itemize}
+
+
+\subsubsection{12.5 Monitorowanie stanu tabel}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:monitorowanie-stanu-tabel}}
+\sphinxAtStartPar
+Monitorowanie obejmuje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Śledzenie fragmentacji danych.
+
+\item {} 
+\sphinxAtStartPar
+Kontrolę wzrostu tabel i indeksów.
+
+\item {} 
+\sphinxAtStartPar
+Statystyki dotyczące operacji odczytów i zapisów.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Narzędzia i widoki systemowe:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_stat\_all\_tables}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_stat\_user\_tables}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_stat\_activity}}
+
+\end{itemize}
+
+
+\subsubsection{12.6 Konserwacja i optymalizacja tabel}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:konserwacja-i-optymalizacja-tabel}}
+\sphinxAtStartPar
+Regularne uruchamianie poleceń:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{VACUUM} \textendash{} usuwa martwe wiersze, zapobiegając nadmiernej fragmentacji.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{ANALYZE} \textendash{} aktualizuje statystyki, ułatwiając optymalizację zapytań.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Dla bardzo dużych tabel można stosować \sphinxcode{\sphinxupquote{VACUUM FULL}} lub reorganizację danych, aby odzyskać przestrzeń.
+
+
+\subsection{13. Rozmiar pojedynczych tabel, rozmiar wszystkich tabel, indeksów tabeli}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar-pojedynczych-tabel-rozmiar-wszystkich-tabel-indeksow-tabeli}}
+\sphinxAtStartPar
+Efektywne zarządzanie rozmiarem tabel oraz ich indeksów ma kluczowe znaczenie dla wydajności systemu.
+
+
+\subsubsection{13.1 Rozmiar pojedynczej tabeli}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar-pojedynczej-tabeli}}
+\sphinxAtStartPar
+Do pozyskania informacji o rozmiarze konkretnej tabeli służą funkcje:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_relation\_size(\textquotesingle{}nazwa\_tabeli\textquotesingle{})}} \textendash{} rozmiar danych tabeli (w bajtach).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_table\_size(\textquotesingle{}nazwa\_tabeli\textquotesingle{})}} \textendash{} rozmiar danych tabeli wraz z danymi TOAST.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{pg\_total\_relation\_size(\textquotesingle{}nazwa\_tabeli\textquotesingle{})}} \textendash{} całkowity rozmiar tabeli wraz z indeksami i TOAST.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Przykład zapytania:}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT}
+  \PYG{n}{pg\PYGZus{}size\PYGZus{}pretty}\PYG{p}{(}\PYG{n}{pg\PYGZus{}relation\PYGZus{}size}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nazwa\PYGZus{}tabeli}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)} \PYG{n}{AS} \PYG{n}{data\PYGZus{}size}\PYG{p}{,}
+  \PYG{n}{pg\PYGZus{}size\PYGZus{}pretty}\PYG{p}{(}\PYG{n}{pg\PYGZus{}indexes\PYGZus{}size}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nazwa\PYGZus{}tabeli}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)} \PYG{n}{AS} \PYG{n}{indexes\PYGZus{}size}\PYG{p}{,}
+  \PYG{n}{pg\PYGZus{}size\PYGZus{}pretty}\PYG{p}{(}\PYG{n}{pg\PYGZus{}total\PYGZus{}relation\PYGZus{}size}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nazwa\PYGZus{}tabeli}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)} \PYG{n}{AS} \PYG{n}{total\PYGZus{}size}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{13.2 Rozmiar wszystkich tabel w bazie}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar-wszystkich-tabel-w-bazie}}
+\sphinxAtStartPar
+Zapytanie pozwalające wylistować wszystkie tabele i ich rozmiary:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT}
+  \PYG{n}{schemaname}\PYG{p}{,}
+  \PYG{n}{relname} \PYG{n}{AS} \PYG{n}{table\PYGZus{}name}\PYG{p}{,}
+  \PYG{n}{pg\PYGZus{}size\PYGZus{}pretty}\PYG{p}{(}\PYG{n}{pg\PYGZus{}total\PYGZus{}relation\PYGZus{}size}\PYG{p}{(}\PYG{n}{relid}\PYG{p}{)}\PYG{p}{)} \PYG{n}{AS} \PYG{n}{total\PYGZus{}size}
+\PYG{n}{FROM}
+  \PYG{n}{pg\PYGZus{}catalog}\PYG{o}{.}\PYG{n}{pg\PYGZus{}statio\PYGZus{}user\PYGZus{}tables}
+\PYG{n}{ORDER} \PYG{n}{BY}
+  \PYG{n}{pg\PYGZus{}total\PYGZus{}relation\PYGZus{}size}\PYG{p}{(}\PYG{n}{relid}\PYG{p}{)} \PYG{n}{DESC}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{13.3 Rozmiar indeksów tabeli}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar-indeksow-tabeli}}
+\sphinxAtStartPar
+Funkcja:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{pg\PYGZus{}indexes\PYGZus{}size}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{nazwa\PYGZus{}tabeli}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Pozwala sprawdzić rozmiar wszystkich indeksów przypisanych do danej tabeli. Monitorowanie indeksów pomaga w podejmowaniu decyzji o ich przebudowie lub usunięciu.
+
+
+\subsubsection{13.4 Znaczenie rozmiarów}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:znaczenie-rozmiarow}}
+\sphinxAtStartPar
+Duże tabele i indeksy mogą powodować:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Wolniejsze operacje zapisu i odczytu.
+
+\item {} 
+\sphinxAtStartPar
+Wydłużony czas tworzenia kopii zapasowych.
+
+\item {} 
+\sphinxAtStartPar
+Większe wymagania przestrzeni dyskowej.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Regularne monitorowanie rozmiaru umożliwia planowanie działań optymalizacyjnych i konserwacyjnych.
+
+
+\subsection{14. Rozmiar}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rozmiar}}
+\sphinxAtStartPar
+Pojęcie „rozmiar” odnosi się do przestrzeni dyskowej zajmowanej przez elementy bazy danych \textendash{} tabele, indeksy, pliki TOAST, a także całe bazy danych lub schematy.
+
+
+\subsubsection{14.1 Rodzaje rozmiarów w PostgreSQL}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:rodzaje-rozmiarow-w-postgresql}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Rozmiar pojedynczego obiektu} (tabeli, indeksu):
+Funkcje takie jak \sphinxcode{\sphinxupquote{pg\_relation\_size()}}, \sphinxcode{\sphinxupquote{pg\_table\_size()}}, \sphinxcode{\sphinxupquote{pg\_indexes\_size()}} oraz \sphinxcode{\sphinxupquote{pg\_total\_relation\_size()}}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Rozmiar schematu lub bazy danych}:
+Funkcje \sphinxcode{\sphinxupquote{pg\_namespace\_size(\textquotesingle{}nazwa\_schematu\textquotesingle{})}} oraz \sphinxcode{\sphinxupquote{pg\_database\_size(\textquotesingle{}nazwa\_bazy\textquotesingle{})}}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Rozmiar plików TOAST}:
+Duże wartości (np. teksty, obrazy) są przenoszone do struktur TOAST, których rozmiar wliczany jest do rozmiaru tabeli, choć można go analizować osobno.
+
+\end{itemize}
+
+
+\subsubsection{14.2 Monitorowanie i kontrola rozmiaru}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:monitorowanie-i-kontrola-rozmiaru}}
+\sphinxAtStartPar
+Administratorzy baz danych powinni regularnie monitorować rozmiar baz danych i jej obiektów, aby:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Zapobiegać przekroczeniu limitów przestrzeni dyskowej.
+
+\item {} 
+\sphinxAtStartPar
+Wcześniej wykrywać problemy z fragmentacją.
+
+\item {} 
+\sphinxAtStartPar
+Planować archiwizację lub czyszczenie danych.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Do monitoringu można wykorzystać zapytania SQL lub narzędzia zewnętrzne (np. pgAdmin, pgBadger).
+
+
+\subsubsection{14.3 Optymalizacja rozmiaru}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:optymalizacja-rozmiaru}}
+\sphinxAtStartPar
+Działania optymalizacyjne obejmują:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Reorganizację i VACUUM}: odzyskiwanie przestrzeni po usuniętych lub zaktualizowanych rekordach oraz poprawa statystyk.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Partycjonowanie tabel}: dzielenie dużych tabel na mniejsze, co ułatwia zarządzanie.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Ograniczenia i typy danych}: odpowiedni dobór typów danych (np. \sphinxcode{\sphinxupquote{varchar(n)}} zamiast \sphinxcode{\sphinxupquote{text}}) oraz stosowanie ograniczeń (np. CHECK) zmniejsza rozmiar danych.
+
+\end{itemize}
+
+
+\subsubsection{14.4 Znaczenie zarządzania rozmiarem}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:znaczenie-zarzadzania-rozmiarem}}
+\sphinxAtStartPar
+Niewłaściwe zarządzanie przestrzenią dyskową może prowadzić do:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Spowolnienia działania bazy.
+
+\item {} 
+\sphinxAtStartPar
+Problemów z backupem i odtwarzaniem.
+
+\item {} 
+\sphinxAtStartPar
+Wzrostu kosztów utrzymania infrastruktury.
+
+\end{itemize}
+
+
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial2/Konfiguracja_baz_danych/Konfiguracja_baz_danych:podsumowanie}}
+\sphinxAtStartPar
+Zarządzanie konfiguracją bazy danych PostgreSQL, optymalizacja zapytań oraz monitorowanie i konserwacja tabel stanowią fundament skutecznego zarządzania systemem bazodanowym. Prawidłowe podejście do tych elementów zapewnia wysoką wydajność, niezawodność i skalowalność systemu.
+
+\sphinxAtStartPar
+—
+
+\sphinxstepscope
+
+
 \chapter{Projektowanie bazy danych \sphinxhyphen{} modele}
 \label{\detokenize{rozdzial3/index:projektowanie-bazy-danych-modele}}\label{\detokenize{rozdzial3/index::doc}}\begin{quote}\begin{description}
 \sphinxlineitem{author}
