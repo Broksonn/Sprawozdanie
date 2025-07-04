@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  4 JUL 2025 15:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  4 JUL 2025 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1294,8 +1294,8 @@ Package rerunfilecheck Info: File `Sprawozdanie.out' has not changed.
 (rerunfilecheck)             Checksum: F195C8EFE6B9316016B10D5F9B3A173A;22046.
  ) 
 Here is how much of TeX's memory you used:
- 20578 strings out of 468221
- 377526 string characters out of 5431924
+ 20580 strings out of 468221
+ 377538 string characters out of 5431924
  855360 words of memory out of 5000000
  48544 multiletter control sequences out of 15000+600000
  685258 words of font info for 98 fonts, out of 8000000 for 9000
@@ -1316,9 +1316,9 @@ C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt
 .pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts
 /t1xtt.pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/t
 xfonts/tcxtt.pfb>
-Output written on Sprawozdanie.pdf (32 pages, 372547 bytes).
+Output written on Sprawozdanie.pdf (32 pages, 373662 bytes).
 PDF statistics:
- 751 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
+ 757 PDF objects out of 1000 (max. 8388607)
+ 151 named destinations out of 1000 (max. 500000)
  901 words of extra memory for PDF output out of 10000 (max. 10000000)
 
