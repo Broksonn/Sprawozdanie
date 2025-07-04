@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  3 JUL 2025 22:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.2)  4 JUL 2025 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -912,7 +912,7 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 1
-16.
+21.
 (C:\Users\Mateusz\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qtm.fd
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
@@ -975,13 +975,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 525--528
+Underfull \hbox (badness 10000) in paragraph at lines 530--533
 \T1/qtm/m/n/10.95 [1] Post-greSQL Doc-u-men-ta-tion ^^U Per-for-mance Tips [][]
 $https : / / www . postgresql . org / docs / current /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--536
+Underfull \hbox (badness 10000) in paragraph at lines 538--541
 []\T1/qtm/m/n/10.95 [3] F. Hecht, Scal-ing Database Sys-tems [][]$https : / / w
 ww . cockroachlabs . com / docs / stable /
  []
@@ -998,7 +998,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [11]
 Chapter 3.
 LaTeX Font Info:    Trying to load font information for T1+txtt on input line 5
-82.
+87.
 (C:\Users\Mateusz\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
@@ -1007,9 +1007,9 @@ File: t1txtt.fd 2000/12/15 v3.1
 
 ]
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 666.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 671.
 
-Overfull \vbox (2.96326pt too high) detected at line 703
+Overfull \vbox (2.96326pt too high) detected at line 708
  []
 
 
@@ -1022,72 +1022,72 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 891--891
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []\T1/qhv/m/n/10.95 pa-
  []
 
 
-Overfull \hbox (7.0858pt too wide) in paragraph at lines 891--891
+Overfull \hbox (7.0858pt too wide) in paragraph at lines 896--896
 []\T1/qhv/m/n/10.95 first_name| 
  []
 
 
-Overfull \hbox (5.01396pt too wide) in paragraph at lines 891--891
+Overfull \hbox (5.01396pt too wide) in paragraph at lines 896--896
 []\T1/qhv/m/n/10.95 last_name| 
  []
 
 
-Overfull \hbox (4.79414pt too wide) in paragraph at lines 891--891
+Overfull \hbox (4.79414pt too wide) in paragraph at lines 896--896
 []\T1/qhv/m/n/10.95 birth_date| 
  []
 
 
-Overfull \hbox (7.3135pt too wide) in paragraph at lines 891--891
+Overfull \hbox (7.3135pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 Wi±niewska| 
  []
 
 
-Overfull \hbox (8.34875pt too wide) in paragraph at lines 891--891
+Overfull \hbox (8.34875pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 90010112345| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--891
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 1990-01-
  []
 
 
-Overfull \hbox (7.89714pt too wide) in paragraph at lines 891--891
+Overfull \hbox (7.89714pt too wide) in paragraph at lines 896--896
 [][][]\T1/qtm/m/n/10.95 maria@example.com[][]| 
  []
 
 
-Overfull \hbox (9.20488pt too wide) in paragraph at lines 891--891
+Overfull \hbox (9.20488pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 +48123123123| 
  []
 
 
-Overfull \hbox (1.94803pt too wide) in paragraph at lines 891--891
+Overfull \hbox (1.94803pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 D¡browski| 
  []
 
 
-Overfull \hbox (8.34875pt too wide) in paragraph at lines 891--891
+Overfull \hbox (8.34875pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 85050554321| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--891
+Underfull \hbox (badness 10000) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 1985-05-
  []
 
 
-Overfull \hbox (13.76633pt too wide) in paragraph at lines 891--891
+Overfull \hbox (13.76633pt too wide) in paragraph at lines 896--896
 [][][]\T1/qtm/m/n/10.95 tomasz@example.com[][]| 
  []
 
 
-Overfull \hbox (9.20488pt too wide) in paragraph at lines 891--891
+Overfull \hbox (9.20488pt too wide) in paragraph at lines 896--896
 []\T1/qtm/m/n/10.95 +48987654321| 
  []
 
@@ -1117,15 +1117,15 @@ Chapter 4.
 
 ]
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10.95> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 1056.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 1061.
 
 LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 
-1060.
+1065.
 
 (C:\Users\Mateusz\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ts1txtt.fd
 File: ts1txtt.fd 2000/12/15 v3.1
 )
-Overfull \vbox (1.12236pt too high) detected at line 1139
+Overfull \vbox (1.12236pt too high) detected at line 1144
  []
 
 
@@ -1159,13 +1159,13 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
  ***********
 Package rerunfilecheck Info: File `Sprawozdanie.out' has not changed.
-(rerunfilecheck)             Checksum: E7A45CE7C93A5FE709E8F94CD2F35701;8158.
+(rerunfilecheck)             Checksum: E2358BB0FFCBA92861034A05E23A4035;8309.
  ) 
 Here is how much of TeX's memory you used:
- 20368 strings out of 468221
- 368650 string characters out of 5431924
- 850965 words of memory out of 5000000
- 48413 multiletter control sequences out of 15000+600000
+ 20371 strings out of 468221
+ 369735 string characters out of 5431924
+ 851096 words of memory out of 5000000
+ 48416 multiletter control sequences out of 15000+600000
  685258 words of font info for 98 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  72i,11n,82p,1203b,667s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1184,9 +1184,9 @@ C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt
 .pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts
 /t1xtt.pfb><C:/Users/Mateusz/AppData/Local/Programs/MiKTeX/fonts/type1/public/t
 xfonts/tcxtt.pfb>
-Output written on Sprawozdanie.pdf (19 pages, 287390 bytes).
+Output written on Sprawozdanie.pdf (19 pages, 288164 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
+ 405 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 500000)
  397 words of extra memory for PDF output out of 10000 (max. 10000000)
 

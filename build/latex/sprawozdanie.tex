@@ -58,12 +58,12 @@
 
 
 \usepackage{sphinxmessages}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 
 
 \title{Sprawozdanie}
-\date{Jul 03, 2025}
+\date{Jul 04, 2025}
 \release{1.0}
 \author{Mateusz Brokos, Szymon Blatkowski}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -107,11 +107,16 @@ Celem następnej sekcji jest pogłębienie wiedzy na temat baz danych przeprowad
 \sphinxstepscope
 
 
-\chapter{Przegląd literatury}
-\label{\detokenize{rozdzial2/index:przeglad-literatury}}\label{\detokenize{rozdzial2/index::doc}}
+\chapter{Badania literaturowe}
+\label{\detokenize{rozdzial2/index:badania-literaturowe}}\label{\detokenize{rozdzial2/index::doc}}
+\sphinxAtStartPar
+Poniżej zamieszczono dokumentacje poszczególnych przeglądów literatury:
+
+\sphinxstepscope
+
 
 \section{Wydajność, skalowanie i replikacja}
-\label{\detokenize{rozdzial2/index:wydajnosc-skalowanie-i-replikacja}}\begin{quote}\begin{description}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:wydajnosc-skalowanie-i-replikacja}}\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index::doc}}\begin{quote}\begin{description}
 \sphinxlineitem{Autorzy}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -130,20 +135,20 @@ Maciej Gołębiowski
 \end{description}\end{quote}
 
 
-\section{Wstęp}
-\label{\detokenize{rozdzial2/index:wstep}}
+\subsection{Wstęp}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:wstep}}
 \sphinxAtStartPar
 Celem niniejszej pracy jest omówienie kluczowych zagadnień związanych z wydajnością, skalowaniem oraz replikacją baz danych. Współczesne systemy informatyczne wymagają wysokiej dostępności i szybkiego przetwarzania danych, dlatego odpowiednie mechanizmy replikacji i optymalizacji wydajności odgrywają istotną rolę w zapewnieniu niezawodnego działania aplikacji. Praca przedstawia różne podejścia do replikacji danych, sposoby testowania wydajności sprzętu oraz techniki zarządzania zasobami i kontrolowania dostępu użytkowników. Omówiono również praktyczne rozwiązania stosowane w popularnych systemach baz danych, takich jak MySQL i PostgreSQL.
 
 
-\section{Buforowanie oraz zarządzanie połączeniami}
-\label{\detokenize{rozdzial2/index:buforowanie-oraz-zarzadzanie-polaczeniami}}
+\subsection{Buforowanie oraz zarządzanie połączeniami}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:buforowanie-oraz-zarzadzanie-polaczeniami}}
 \sphinxAtStartPar
 Buforowanie i zarządzanie połączeniami to kluczowe mechanizmy zwiększające wydajność i stabilność systemu.
 
 
-\subsection{Buforowanie połączeń:}
-\label{\detokenize{rozdzial2/index:buforowanie-polaczen}}\begin{itemize}
+\subsubsection{Buforowanie połączeń:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:buforowanie-polaczen}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 Unieważnienie (Inwalidacja) bufora: Proces usuwania nieaktualnych danych z pamięci podręcznej, aby aplikacja zawsze korzystała ze świeżych informacji. Może być wykonywana automatycznie (np. przez wygasanie danych) lub ręcznie przez aplikację.
@@ -159,8 +164,8 @@ Zapisywanie wyników zapytań: Wyniki często wykonywanych zapytań są przechow
 \end{itemize}
 
 
-\subsection{Zarządzanie połączeniami:}
-\label{\detokenize{rozdzial2/index:zarzadzanie-polaczeniami}}\begin{itemize}
+\subsubsection{Zarządzanie połączeniami:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:zarzadzanie-polaczeniami}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 Monitorowanie parametrów połączeń: Śledzenie wskaźników takich jak czas reakcji, błędy łączenia i ilość przesyłanych danych. Regularne monitorowanie pozwala szybko wykrywać i usuwać problemy, zwiększając stabilność i wydajność systemu.
@@ -176,14 +181,14 @@ Obsługa transakcji: Kontrola przebiegu transakcji w bazie danych w celu zapewni
 \end{itemize}
 
 
-\section{Wydajność}
-\label{\detokenize{rozdzial2/index:wydajnosc}}
+\subsection{Wydajność}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:wydajnosc}}
 \sphinxAtStartPar
 Wydajność bazy danych to kluczowy czynnik wpływający na skuteczne zarządzanie danymi i funkcjonowanie organizacji. W dobie cyfrowej transformacji optymalizacja działania baz stanowi istotny element strategii IT. W tym rozdziale omówiono sześć głównych wskaźników wydajności: czas odpowiedzi, przepustowość, współbieżność, wykorzystanie zasobów, problem zapytań N+1 oraz błędy w bazie danych. Regularne monitorowanie tych parametrów i odpowiednie reagowanie zapewnia stabilność systemu i wysoką efektywność pracy. Zaniedbanie ich kontroli grozi spadkiem wydajności, ryzykiem utraty danych i poważnymi awariami.
 
 
-\subsection{Klastry oraz indeksy}
-\label{\detokenize{rozdzial2/index:klastry-oraz-indeksy}}\begin{itemize}
+\subsubsection{Klastry oraz indeksy}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:klastry-oraz-indeksy}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 Klaster w bazie danych to metoda organizacji, w której powiązane tabele są przechowywane na tym samym obszarze dysku. Dzięki relacjom za pomocą kluczy obcych dane znajdują się blisko siebie, co skraca czas dostępu i zwiększa wydajność wyszukiwania.
@@ -195,8 +200,8 @@ Indeks w bazie danych to struktura przypominająca spis treści, która pozwala 
 \end{itemize}
 
 
-\subsection{1. Współbieżność w bazach danych}
-\label{\detokenize{rozdzial2/index:wspolbieznosc-w-bazach-danych}}
+\subsubsection{1. Współbieżność w bazach danych}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:wspolbieznosc-w-bazach-danych}}
 \sphinxAtStartPar
 Współbieżność w bazach danych oznacza zdolność systemu do jednoczesnego przetwarzania wielu operacji, co ma kluczowe znaczenie tam, gdzie wielu użytkowników korzysta z bazy w tym samym czasie. Poziom współbieżności mierzy się m.in. liczbą transakcji na sekundę (TPS) i zapytań na sekundę (QPS).
 \begin{description}
@@ -233,8 +238,8 @@ Głód zasobów, kiedy niektóre operacje monopolizują zasoby, ograniczając do
 \end{description}
 
 
-\subsection{2. Przepustowość bazy danych}
-\label{\detokenize{rozdzial2/index:przepustowosc-bazy-danych}}
+\subsubsection{2. Przepustowość bazy danych}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:przepustowosc-bazy-danych}}
 \sphinxAtStartPar
 Przepustowość bazy danych to miara zdolności systemu do efektywnego przetwarzania określonej liczby operacji w jednostce czasu. Im wyższa, tym więcej zapytań lub transakcji baza obsłuży szybko i sprawnie.
 \begin{description}
@@ -259,8 +264,8 @@ Dystrybuowanie danych: Techniki takie jak sharding (NoSQL) czy partycjonowanie (
 Podsumowując, odpowiednie zarządzanie współbieżnością, wybór architektury i rozproszenie danych to klucz do wysokiej przepustowości bazy danych.
 
 
-\subsection{3. Responsywność bazy danych}
-\label{\detokenize{rozdzial2/index:responsywnosc-bazy-danych}}
+\subsubsection{3. Responsywność bazy danych}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:responsywnosc-bazy-danych}}
 \sphinxAtStartPar
 Czasy odpowiedzi bazy danych są kluczowe w środowiskach wymagających szybkich decyzji, np. w finansach czy sytuacjach kryzysowych.
 \begin{description}
@@ -285,8 +290,8 @@ Balansowanie obciążeń oraz dostęp równoczesny: pooling połączeń, replika
 Szybkie odpowiedzi podnoszą efektywność, satysfakcję użytkowników i konkurencyjność systemu bazodanowego.
 
 
-\subsection{4. Zapytania N+1}
-\label{\detokenize{rozdzial2/index:zapytania-n-1}}
+\subsubsection{4. Zapytania N+1}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:zapytania-n-1}}
 \sphinxAtStartPar
 Problem zapytań typu N+1 to częsta nieefektywność w aplikacjach korzystających z ORM, polegająca na wykonywaniu wielu zapytań \textendash{} jednego głównego i osobnego dla każdego powiązanego rekordu. Na przykład, pobranie 10 użytkowników i osobne zapytanie o profil dla każdego daje łącznie 11 zapytań.
 \begin{description}
@@ -308,8 +313,8 @@ Niewykorzystanie złączeń SQL (JOIN), które pozwalają na pobranie danych w j
 \end{description}
 
 
-\subsection{5. Błędy w bazach danych}
-\label{\detokenize{rozdzial2/index:bledy-w-bazach-danych}}
+\subsubsection{5. Błędy w bazach danych}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:bledy-w-bazach-danych}}
 \sphinxAtStartPar
 Błędy wpływające na wydajność bazy danych to istotny wskaźnik kondycji systemu.
 \begin{description}
@@ -342,8 +347,8 @@ Skuteczna identyfikacja i usuwanie tych błędów jest kluczowa dla stabilności
 \end{description}
 
 
-\subsection{6. Zużycie dostępnych zasobów}
-\label{\detokenize{rozdzial2/index:zuzycie-dostepnych-zasobow}}
+\subsubsection{6. Zużycie dostępnych zasobów}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:zuzycie-dostepnych-zasobow}}
 \sphinxAtStartPar
 Zużycie zasobów w bazach danych to kluczowy czynnik wpływający na ich wydajność.
 \begin{description}
@@ -368,38 +373,38 @@ Pamięć RAM: służy do przechowywania często używanych danych i buforów. Je
 Dobre zarządzanie CPU, pamięcią i operacjami dyskowymi jest niezbędne dla utrzymania wysokiej wydajności i stabilności systemu bazodanowego.
 
 
-\subsection{Prostota rozbudowy:}
-\label{\detokenize{rozdzial2/index:prostota-rozbudowy}}
+\subsubsection{Prostota rozbudowy:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:prostota-rozbudowy}}
 \sphinxAtStartPar
 Bazy danych SQL typu scale\sphinxhyphen{}out umożliwiają liniową skalowalność przez dodawanie nowych węzłów do klastra bez przestojów i zmian w aplikacji czy sprzęcie. Każdy węzeł aktywnie przetwarza transakcje, a logika bazy jest przenoszona do tych węzłów, co ogranicza transfer danych w sieci i redukuje ruch. Tylko jeden węzeł obsługuje zapisy dla danego fragmentu danych, eliminując rywalizację o zasoby, co poprawia wydajność w porównaniu do tradycyjnych baz, gdzie blokady danych spowalniają system przy wielu operacjach jednocześnie.
 
 
-\subsection{Analityka czasu rzeczywistego:}
-\label{\detokenize{rozdzial2/index:analityka-czasu-rzeczywistego}}
+\subsubsection{Analityka czasu rzeczywistego:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:analityka-czasu-rzeczywistego}}
 \sphinxAtStartPar
 Analityka czasu rzeczywistego w Big Data umożliwia natychmiastową analizę danych, dając firmom przewagę konkurencyjną. Skalowalne bazy SQL pozwalają na szybkie przetwarzanie danych operacyjnych dzięki technikom działającym w pamięci operacyjnej i wykorzystującym szybkie dyski SSD, bez potrzeby stosowania skomplikowanych rozwiązań. Przykłady Google (baza F1 SQL w Adwords) i Facebooka pokazują, że relacyjne bazy danych są efektywne zarówno w OLTP, jak i OLAP, a integracja SQL z ekosystemem Hadoop zwiększa możliwości analityczne przy jednoczesnym ograniczeniu zapotrzebowania na specjalistów.
 
 
-\subsection{Dostępność w chmurze:}
-\label{\detokenize{rozdzial2/index:dostepnosc-w-chmurze}}
+\subsubsection{Dostępność w chmurze:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:dostepnosc-w-chmurze}}
 \sphinxAtStartPar
 Organizacje wymagają nieprzerwanej pracy aplikacji produkcyjnych, co zapewnia ciągłość procesów biznesowych. W przypadku awarii chmury szybkie przywrócenie bazy danych bez utraty danych jest kluczowe. Skalowalne bazy SQL realizują to poprzez mechanizmy wysokiej dostępności, które opierają się na replikacji wielu kopii danych, minimalizując ryzyko ich utraty.
 
 
-\subsection{Unikanie wąskich gardeł:}
-\label{\detokenize{rozdzial2/index:unikanie-waskich-gardel}}
+\subsubsection{Unikanie wąskich gardeł:}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:unikanie-waskich-gardel}}
 \sphinxAtStartPar
 W skalowalnych bazach danych SQL rozwiązano problem logu transakcyjnego, który w tradycyjnych systemach często stanowił wąskie gardło wydajności. W klasycznych rozwiązaniach wszystkie rekordy muszą być najpierw zapisane w logu transakcyjnym przed zakończeniem zapytania. Niewłaściwa konfiguracja lub awarie mogą powodować nadmierne rozrosty logu, czasem przekraczające rozmiar samej bazy, co skutkuje znacznym spowolnieniem operacji zapisu, nawet przy użyciu szybkich dysków SSD.
 
 
-\section{Skalowanie}
-\label{\detokenize{rozdzial2/index:skalowanie}}
+\subsection{Skalowanie}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:skalowanie}}
 \sphinxAtStartPar
 Bazy danych SQL nie są tak kosztowne w rozbudowie, jak się często uważa, ponieważ oferują możliwość skalowania poziomego. Ta cecha jest szczególnie cenna w analizie danych biznesowych, gdzie rośnie potrzeba przetwarzania danych klientów z wielu źródeł w czasie rzeczywistym. Obok tradycyjnych rozwiązań dostępne są również bazy NoSQL, NewSQL oraz platformy oparte na Hadoop, które odpowiadają na różne wyzwania związane z przetwarzaniem dużych ilości danych. Skalowanie poziome z optymalnym balansem pomiędzy pamięcią RAM a pamięcią flash pozwala osiągnąć wysoką wydajność. Przykłady nowoczesnych skalowalnych baz SQL, takich jak InfiniSQL, ClustrixDB czy F1, potwierdzają, że tradycyjne bazy SQL mogą efektywnie skalować się wszerz.
 
 
-\section{Replikacja}
-\label{\detokenize{rozdzial2/index:replikacja}}
+\subsection{Replikacja}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:replikacja}}
 \sphinxAtStartPar
 Replikacja danych to proces kopiowania informacji między różnymi serwerami baz danych, który przynosi wiele korzyści:
 \sphinxhyphen{} Zwiększenie skalowalności \textendash{} obciążenie systemu jest rozdzielane między wiele serwerów; zapisy i aktualizacje odbywają się na jednym serwerze, natomiast odczyty i wyszukiwania na innych, co poprawia wydajność.
@@ -408,8 +413,8 @@ Replikacja danych to proces kopiowania informacji między różnymi serwerami ba
 \sphinxhyphen{} Ułatwienie analizy danych \textendash{} obciążające analizy i obliczenia mogą być wykonywane na oddzielnym serwerze, dzięki czemu nie obciążają głównej bazy danych i nie wpływają na jej wydajność.
 
 
-\subsection{Mechanizmy replikacji}
-\label{\detokenize{rozdzial2/index:mechanizmy-replikacji}}
+\subsubsection{Mechanizmy replikacji}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:mechanizmy-replikacji}}
 \sphinxAtStartPar
 Replikacja w bazach danych polega na kopiowaniu i synchronizowaniu danych oraz obiektów z serwera głównego (master) na serwer zapasowy (slave), aby zapewnić spójność i wysoką dostępność danych.
 
@@ -422,8 +427,8 @@ Mechanizm replikacji MySQL działa w następujący sposób:
 Podsumowując, replikacja w MySQL polega na automatycznym przesyłaniu i odtwarzaniu zmian, dzięki czemu baza na serwerze zapasowym jest na bieżąco synchronizowana z bazą główną.
 
 
-\subsection{Rodzaje mechanizmów replikacji}
-\label{\detokenize{rozdzial2/index:rodzaje-mechanizmow-replikacji}}\begin{itemize}
+\subsubsection{Rodzaje mechanizmów replikacji}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:rodzaje-mechanizmow-replikacji}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 Replikacja oparta na zapisie (Write\sphinxhyphen{}Ahead Logging): Ten typ replikacji jest często wykorzystywany w systemach takich jak PostgreSQL. Polega na tym, że zmiany w transakcjach są najpierw zapisywane w dzienniku zapisu, a następnie jego zawartość jest kopiowana na serwery repliki.
@@ -450,8 +455,8 @@ Replikacja dwukierunkowa (Bi\sphinxhyphen{}Directional Replication): Pozwala na 
 PostgreSQL oferuje różne metody replikacji, w tym opartą na zapisie (WAL), asynchroniczną, synchroniczną oraz replikację logiczną. Mechanizm WAL zapewnia bezpieczeństwo danych przez zapisywanie wszystkich zmian w dzienniku przed ich zastosowaniem i przesyłanie go na repliki. W trybie asynchronicznym dane trafiają najpierw na serwer główny, a potem na repliki, natomiast w trybie synchronicznym zapisy są realizowane jednocześnie. Dodatkowo, replikacja logiczna umożliwia kopiowanie wybranych tabel lub baz, co jest przydatne w przypadku bardzo dużych zbiorów danych.
 
 
-\subsection{Zalety i Wady replikacji}
-\label{\detokenize{rozdzial2/index:zalety-i-wady-replikacji}}
+\subsubsection{Zalety i Wady replikacji}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:zalety-i-wady-replikacji}}
 \sphinxAtStartPar
 Zalety:
 \begin{itemize}
@@ -487,8 +492,8 @@ Mechanizm nie chroni przed skutkami działań, takich jak przypadkowe usunięcie
 \end{itemize}
 
 
-\section{Kontrola dostępu i limity systemowe}
-\label{\detokenize{rozdzial2/index:kontrola-dostepu-i-limity-systemowe}}
+\subsection{Kontrola dostępu i limity systemowe}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:kontrola-dostepu-i-limity-systemowe}}
 \sphinxAtStartPar
 Limity systemowe w zarządzaniu bazami danych określają maksymalną ilość zasobów, które system jest w stanie obsłużyć. Są one ustalane przez system zarządzania bazą danych (DBMS) i zależą od zasobów sprzętowych oraz konfiguracji. Na przykład w Azure SQL Database limity zasobów różnią się w zależności od wybranego poziomu cenowego. W MySQL maksymalny rozmiar tabeli jest zwykle ograniczony przez parametry systemu operacyjnego dotyczące wielkości plików.
 
@@ -499,8 +504,8 @@ Kontrola dostępu użytkowników w DBMS to mechanizm umożliwiający lub blokuj�
 PostgreSQL oferuje narzędzia do zarządzania limitami systemowymi i kontrolą dostępu. Administratorzy mogą ustawiać parametry takie jak maksymalna liczba połączeń, limity pamięci, maksymalny rozmiar pliku danych czy wielkość tabeli. W zakresie kontroli dostępu PostgreSQL zapewnia mechanizmy uwierzytelniania i autoryzacji. Administratorzy mogą tworzyć role i nadawać uprawnienia dotyczące baz danych, schematów, tabel i kolumn. PostgreSQL obsługuje uwierzytelnianie oparte na hasłach i certyfikatach SSL, umożliwiając skuteczne zarządzanie bezpieczeństwem i poufnością danych.
 
 
-\section{Testowanie wydajności sprzętu na poziomie OS}
-\label{\detokenize{rozdzial2/index:testowanie-wydajnosci-sprzetu-na-poziomie-os}}
+\subsection{Testowanie wydajności sprzętu na poziomie OS}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:testowanie-wydajnosci-sprzetu-na-poziomie-os}}
 \sphinxAtStartPar
 Testy wydajności kluczowych komponentów sprzętowych na poziomie systemu operacyjnego są niezbędne do optymalizacji działania baz danych. Obejmują oceny pamięci RAM, procesora (CPU) oraz dysków twardych (HDD) i SSD — elementów mających największy wpływ na szybkość i efektywność systemu. Analiza wyników pomaga wskazać elementy wymagające modernizacji lub optymalizacji, co pozwala podnieść ogólną wydajność systemu bazodanowego, niezależnie od używanego oprogramowania.
 
@@ -514,14 +519,14 @@ Testy procesora oceniają jego moc obliczeniową i zdolność do przetwarzania z
 Testy dysków sprawdzają szybkość operacji odczytu i zapisu, co jest kluczowe, ponieważ baza danych przechowuje dane na nośnikach dyskowych. Do pomiarów wykorzystuje się narzędzia takie jak CrystalDiskMark 8 czy Acronis Drive Monitor.
 
 
-\section{Podsumowanie}
-\label{\detokenize{rozdzial2/index:podsumowanie}}
+\subsection{Podsumowanie}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:podsumowanie}}
 \sphinxAtStartPar
 W pracy przedstawiono kluczowe zagadnienia związane z zarządzaniem bazami danych, w tym rodzaje replikacji, metody kontroli dostępu użytkowników, limity systemowe oraz znaczenie testów wydajności komponentów sprzętowych. Omówiono zalety i wady replikacji, takie jak zwiększenie dostępności czy ryzyko niespójności danych. Scharakteryzowano mechanizmy uwierzytelniania i autoryzacji, które zapewniają bezpieczeństwo informacji, oraz wskazano, jak limity zasobów wpływają na działanie systemu. Zwrócono także uwagę na rolę testów pamięci RAM, procesora i dysków w optymalizacji wydajności środowiska bazodanowego. Całość podkreśla znaczenie świadomego projektowania i utrzymywania infrastruktury baz danych w celu zapewnienia jej niezawodności, bezpieczeństwa i wysokiej efektywności pracy.
 
 
-\section{Bibliografia}
-\label{\detokenize{rozdzial2/index:bibliografia}}
+\subsection{Bibliografia}
+\label{\detokenize{rozdzial2/Wydajnosc-Skalowanie-i-Replikacja/index:bibliografia}}
 \sphinxAtStartPar
 {[}1{]} PostgreSQL Documentation \textendash{} Performance Tips
 \sphinxurl{https://www.postgresql.org/docs/current/performance-tips.html}
