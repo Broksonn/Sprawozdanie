@@ -1,4 +1,4 @@
-PostgreSQL – skrypt ładowania danych
+PostgreSQL – kod
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
