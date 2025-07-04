@@ -90,22 +90,50 @@
 \contentsline {subsubsection}{14.3 Optymalizacja rozmiaru}{24}{subsubsection*.59}%
 \contentsline {subsubsection}{14.4 Znaczenie zarządzania rozmiarem}{24}{subsubsection*.60}%
 \contentsline {subsection}{\numberline {2.3.15}Podsumowanie}{24}{subsection.2.3.15}%
-\contentsline {chapter}{\numberline {3}Projektowanie bazy danych \sphinxhyphen {} modele}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Wprowadzenie}{25}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Model Konceptualny}{25}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Model Logiczny}{26}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Model Fizyczny}{26}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Przykładowe rekordy}{27}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Tabela Specialization}{27}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Tabela Doctor}{27}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Tabela Patient}{27}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Tabela Visit}{28}{subsection.3.5.4}%
-\contentsline {chapter}{\numberline {4}Analiza Bazy danych i optymalizacja zapytań}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Analiza normalizacji}{29}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Model logiczny jest w 3NF:}{29}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Potencjalne problemy wydajnościowe}{29}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Strategie optymalizacji}{29}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Prezentacja skryptów wspomagających}{30}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Wnioski}{31}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{32}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Spis repozytoriów}{32}{section.5.1}%
+\contentsline {section}{\numberline {2.4}Bezpieczeństwo}{25}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}1. pg\_hba.conf — opis pliku konfiguracyjnego PostgreSQL}{25}{subsection.2.4.1}%
+\contentsline {subsubsection}{Format pliku}{25}{subsubsection*.61}%
+\contentsline {subsubsection}{Znaczenie Elementów}{25}{subsubsection*.62}%
+\contentsline {subsubsection}{Typy połączeń}{25}{subsubsection*.63}%
+\contentsline {subsubsection}{Metody uwierzytelniania}{25}{subsubsection*.64}%
+\contentsline {subsubsection}{Przykładowy wpis}{26}{subsubsection*.65}%
+\contentsline {subsubsection}{Zmiany i przeładowanie}{26}{subsubsection*.66}%
+\contentsline {subsection}{\numberline {2.4.2}2. Uprawnienia użytkownika}{26}{subsection.2.4.2}%
+\contentsline {subsubsection}{Poziom systemowy}{26}{subsubsection*.67}%
+\contentsline {subsubsection}{Poziom bazy danych}{26}{subsubsection*.68}%
+\contentsline {subsubsection}{Poziom schematu}{27}{subsubsection*.69}%
+\contentsline {subsubsection}{Poziom tabeli}{27}{subsubsection*.70}%
+\contentsline {subsubsection}{Przykład}{27}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {2.4.3}3. Zarządzanie użytkownikami a dane wprowadzone}{27}{subsection.2.4.3}%
+\contentsline {subsubsection}{Tworzenie i modyfikacja użytkowników}{27}{subsubsection*.72}%
+\contentsline {subsubsection}{Usuwanie użytkowników}{27}{subsubsection*.73}%
+\contentsline {subsubsection}{Usunięcie użytkownika, a dane które posiadał}{27}{subsubsection*.74}%
+\contentsline {subsubsection}{Usunięcie użytkowników, a obietky}{28}{subsubsection*.75}%
+\contentsline {subsection}{\numberline {2.4.4}4. Zabezpieczenie połączenia przez SSL/TLS}{28}{subsection.2.4.4}%
+\contentsline {subsubsection}{Konfiguracja SSL/TLS w PostgreSQL}{28}{subsubsection*.76}%
+\contentsline {subsubsection}{Monitorowanie i testowanie SSL/TLS}{29}{subsubsection*.77}%
+\contentsline {subsection}{\numberline {2.4.5}5. Szyfrowanie danych}{29}{subsection.2.4.5}%
+\contentsline {subsubsection}{Szyfrowanie transmisji}{29}{subsubsection*.78}%
+\contentsline {subsubsection}{Szyfrowanie całego dysku}{29}{subsubsection*.79}%
+\contentsline {subsubsection}{Szyfrowanie na poziomie kolumn z użyciem pgcrypto}{29}{subsubsection*.80}%
+\contentsline {subsubsection}{Szyfrowanie na poziomie aplikacji}{30}{subsubsection*.81}%
+\contentsline {subsubsection}{Zarządzanie kluczami szyfrującymi}{30}{subsubsection*.82}%
+\contentsline {chapter}{\numberline {3}Projektowanie bazy danych \sphinxhyphen {} modele}{31}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wprowadzenie}{31}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Model Konceptualny}{31}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Model Logiczny}{32}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Model Fizyczny}{32}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Przykładowe rekordy}{33}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Tabela Specialization}{33}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Tabela Doctor}{33}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Tabela Patient}{33}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Tabela Visit}{34}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}Analiza Bazy danych i optymalizacja zapytań}{35}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Analiza normalizacji}{35}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Model logiczny jest w 3NF:}{35}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Potencjalne problemy wydajnościowe}{35}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Strategie optymalizacji}{35}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Prezentacja skryptów wspomagających}{36}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Wnioski}{37}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{38}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Spis repozytoriów}{38}{section.5.1}%

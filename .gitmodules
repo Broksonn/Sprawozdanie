@@ -28,3 +28,6 @@
 [submodule "source/rozdzial2/Konfiguracja_baz_danych"]
 	path = source/rozdzial2/Konfiguracja_baz_danych
 	url = https://github.com/Chaiolites/Konfiguracja_baz_danych.git
+[submodule "source/rozdzial2/Bezpieczenstwo"]
+	path = source/rozdzial2/Bezpieczenstwo
+	url = https://github.com/BlazejUl/bezpieczenstwo.git

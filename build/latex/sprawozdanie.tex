@@ -1723,6 +1723,483 @@ Zarządzanie konfiguracją bazy danych PostgreSQL, optymalizacja zapytań oraz m
 \sphinxstepscope
 
 
+\section{Bezpieczeństwo}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:bezpieczenstwo}}\label{\detokenize{rozdzial2/Bezpieczenstwo/index::doc}}\begin{quote}\begin{description}
+\sphinxlineitem{Autorzy}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Katarzyna Tarasek
+
+\item {} 
+\sphinxAtStartPar
+Błażej Uliasz
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+
+\subsection{1. pg\_hba.conf — opis pliku konfiguracyjnego PostgreSQL}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:pg-hba-conf-opis-pliku-konfiguracyjnego-postgresql}}
+\sphinxAtStartPar
+Plik \sphinxcode{\sphinxupquote{pg\_hba.conf}} (skrót od \sphinxstyleemphasis{PostgreSQL Host\sphinxhyphen{}Based Authentication}) kontroluje, kto może się połączyć z bazą danych PostgreSQL, skąd, i w jaki sposób ma zostać uwierzytelniony.
+
+
+\subsubsection{Format pliku}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:format-pliku}}
+\sphinxAtStartPar
+Każdy wiersz odpowiada jednej regule dostępu:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZlt{}}\PYG{n}{typ}\PYG{o}{\PYGZgt{}}  \PYG{o}{\PYGZlt{}}\PYG{n}{baza} \PYG{n}{danych}\PYG{o}{\PYGZgt{}}  \PYG{o}{\PYGZlt{}}\PYG{n}{użytkownik}\PYG{o}{\PYGZgt{}}  \PYG{o}{\PYGZlt{}}\PYG{n}{adres}\PYG{o}{\PYGZgt{}}  \PYG{o}{\PYGZlt{}}\PYG{n}{metoda}\PYG{o}{\PYGZgt{}}  \PYG{p}{[}\PYG{n}{opcje}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Opis elementów:
+
+
+\subsubsection{Znaczenie Elementów}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:znaczenie-elementow}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\textless{}typ\textgreater{}}} — Typ połączenia \textendash{} np. \sphinxcode{\sphinxupquote{local}}, \sphinxcode{\sphinxupquote{host}}, \sphinxcode{\sphinxupquote{hostssl}}, \sphinxcode{\sphinxupquote{hostnossl}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\textless{}baza\textgreater{}}} — Nazwa bazy danych, do której ma być dostęp \textendash{} konkretna lub \sphinxcode{\sphinxupquote{all}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\textless{}użytkownik\textgreater{}}} — Nazwa użytkownika PostgreSQL lub \sphinxcode{\sphinxupquote{all}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\textless{}adres\textgreater{}}} — Adres IP lub zakres CIDR klienta (np. \sphinxcode{\sphinxupquote{192.168.1.0/24}}); pomijany dla \sphinxcode{\sphinxupquote{local}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{\textless{}metoda\textgreater{}}} — Metoda uwierzytelnienia \textendash{} np. \sphinxcode{\sphinxupquote{md5}}, \sphinxcode{\sphinxupquote{trust}}, \sphinxcode{\sphinxupquote{scram\sphinxhyphen{}sha\sphinxhyphen{}256}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{{[}opcje{]}}} — Opcjonalne dodatkowe parametry (np. \sphinxcode{\sphinxupquote{clientcert=1}})
+
+\end{itemize}
+
+
+\subsubsection{Typy połączeń}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:typy-polaczen}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{local}} — Umożliwia połączenia \sphinxstylestrong{lokalne przez Unix socket} (pliki specjalne w systemie plików, np. \sphinxcode{\sphinxupquote{/var/run/postgresql/.s.PGSQL.5432}}).
+Ten tryb jest dostępny \sphinxstylestrong{tylko na systemach Unix/Linux} i ignoruje pole \sphinxcode{\sphinxupquote{\textless{}adres\textgreater{}}}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{host}} — Oznacza połączenia \sphinxstylestrong{przez TCP/IP}, niezależnie od tego, czy klient znajduje się na tym samym hoście, czy w sieci.
+Wymaga podania adresu IP lub zakresu IP (w polu \sphinxcode{\sphinxupquote{\textless{}adres\textgreater{}}}).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{hostssl}} — Jak \sphinxcode{\sphinxupquote{host}}, ale \sphinxstylestrong{wymusza użycie SSL/TLS}. Połączenia bez szyfrowania będą odrzucone.
+Wymaga, aby serwer PostgreSQL był poprawnie skonfigurowany do obsługi SSL (np. pliki \sphinxcode{\sphinxupquote{server.crt}}, \sphinxcode{\sphinxupquote{server.key}}).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{hostnossl}} — Jak \sphinxcode{\sphinxupquote{host}}, ale \sphinxstylestrong{odrzuca połączenia przez SSL/TLS}. Działa tylko dla połączeń nieszyfrowanych.
+Może być używane do rozróżnienia reguł dla klientów z/do SSL i bez SSL.
+
+\end{itemize}
+
+
+\subsubsection{Metody uwierzytelniania}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:metody-uwierzytelniania}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{trust}} — brak uwierzytelnienia (niezalecane!)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{md5}} — Klient musi podać hasło, które jest przesyłane jako skrót MD5.
+To popularna metoda w starszych wersjach PostgreSQL, ale obecnie uznawana za przestarzałą (choć nadal obsługiwana).
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{scram\sphinxhyphen{}sha\sphinxhyphen{}256}} — Nowoczesna, bezpieczna metoda uwierzytelniania oparta na protokole SCRAM i algorytmie SHA\sphinxhyphen{}256.
+Zalecana w produkcji od PostgreSQL 10 wzwyż. Wymaga, aby hasła w systemie były zapisane jako SCRAM, a nie MD5.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{peer}} — Tylko dla połączeń \sphinxcode{\sphinxupquote{local}}. Sprawdza, czy nazwa użytkownika systemowego (OS) pasuje do użytkownika PostgreSQL.
+Stosowane w systemach Unix/Linux.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{ident}} — Tylko dla połączeń TCP/IP. Wymaga usługi ident (lub pliku mapowania ident), aby ustalić, kto próbuje się połączyć.
+Bardziej złożona i rzadziej używana niż \sphinxcode{\sphinxupquote{peer}}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{reject}} — Zawsze odrzuca połączenie. Może być użyte do celowego blokowania określonych adresów lub użytkowników.
+
+\end{itemize}
+
+
+\subsubsection{Przykładowy wpis}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:przykladowy-wpis}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} 1. Lokalny dostęp bez hasła}
+\PYG{n}{local}   \PYG{n+nb}{all}             \PYG{n}{postgres}                                \PYG{n}{peer}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Zmiany i przeładowanie}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:zmiany-i-przeladowanie}}
+\sphinxAtStartPar
+Po zmianach w pliku należy przeładować konfigurację PostgreSQL:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{pg\PYGZus{}ctl} \PYG{n}{reload}
+\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}} \PYG{n}{lub}\PYG{p}{:}
+\PYG{n}{SELECT} \PYG{n}{pg\PYGZus{}reload\PYGZus{}conf}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{2. Uprawnienia użytkownika}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:uprawnienia-uzytkownika}}
+\sphinxAtStartPar
+PostgreSQL pozwala na bardzo precyzyjne zarządzanie uprawnieniami użytkowników lub roli poprzez wiele poziomów dostępu — od globalnych uprawnień systemowych, przez bazy danych, aż po pojedyncze kolumny w tabelach.
+
+
+\subsubsection{Poziom systemowy}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:poziom-systemowy}}
+\sphinxAtStartPar
+To najwyższy poziom uprawnień, nadawany roli jako atrybut. Dotyczy całego klastra PostgreSQL:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{SUPERUSER} — Pełna kontrola nad serwerem, obejmuje wszystkie uprawnienia
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{CREATEDB} — Możliwość tworzenia nowych baz danych
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{CREATEROLE} — Tworzenie i zarządzanie rolami/użytkownikami
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{REPLICATION} — Umożliwia replikację danych (logiczna/strumieniowa)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{BYPASSRLS} — Omija polityki RLS (Row\sphinxhyphen{}Level Security)
+
+\end{itemize}
+
+
+\subsubsection{Poziom bazy danych}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:poziom-bazy-danych}}
+\sphinxAtStartPar
+Uprawnienia do konkretnej bazy danych:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{CONNECT} — Pozwala na połączenie z bazą danych
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{CREATE} — Pozwala na tworzenie schematów w tej bazie
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{TEMP} — Możliwość tworzenia tymczasowych tabel
+
+\end{itemize}
+
+
+\subsubsection{Poziom schematu}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:poziom-schematu}}
+\sphinxAtStartPar
+Schemat (np. \sphinxtitleref{public}) to kontener na tabele, funkcje, typy. Uprawnienia:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{USAGE} — Umożliwia dostęp do schematu (bez tego SELECT/INSERT nie zadziała)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{CREATE} — Pozwala tworzyć obiekty (np. tabele) w schemacie
+
+\end{itemize}
+
+
+\subsubsection{Poziom tabeli}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:poziom-tabeli}}
+\sphinxAtStartPar
+Uprawnienia do całej tabeli :
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{SELECT} — Odczyt danych
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{INSERT} — Wstawianie danych
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{UPDATE} — Modyfikacja danych
+
+\item {} 
+\sphinxAtStartPar
+\sphinxtitleref{DELETE} — Usuwanie danych
+
+\end{itemize}
+
+
+\subsubsection{Przykład}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:przyklad}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{GRANT} \PYG{n}{SELECT}\PYG{p}{,} \PYG{n}{UPDATE} \PYG{n}{ON} \PYG{n}{employees} \PYG{n}{TO} \PYG{n}{hr\PYGZus{}team}\PYG{p}{;}
+\PYG{n}{REVOKE} \PYG{n}{DELETE} \PYG{n}{ON} \PYG{n}{employees} \PYG{n}{FROM} \PYG{n}{kontraktorzy}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{3. Zarządzanie użytkownikami a dane wprowadzone}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:zarzadzanie-uzytkownikami-a-dane-wprowadzone}}
+\sphinxAtStartPar
+Zarządzanie użytkownikami w PostgreSQL dotyczy tworzenia, usuwania i modyfikowania użytkowników. Sytuacja na którą trzeba tutaj zwrócić uwagę jest usuwanie użytkonika ale pozostawienie danych, które wprowadził.
+
+
+\subsubsection{Tworzenie i modyfikacja użytkowników}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:tworzenie-i-modyfikacja-uzytkownikow}}
+\sphinxAtStartPar
+Do tworzenia nowych użytkowników używamy polecenia \sphinxcode{\sphinxupquote{CREATE USER}}. Do modyfikowania użytkowników, którzy już istnieją, używamy polecenia \sphinxcode{\sphinxupquote{ALETER USER}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{CREATE} \PYG{n}{USER} \PYG{n}{username} \PYG{n}{WITH} \PYG{n}{PASSWORD} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{password}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\PYG{n}{ALTER} \PYG{n}{USER} \PYG{n}{username} \PYG{n}{WITH} \PYG{n}{PASSWORD} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{new\PYGZus{}password}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsubsection{Usuwanie użytkowników}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:usuwanie-uzytkownikow}}
+\sphinxAtStartPar
+Do usuwania użytkowników, używamy polecenia {\color{red}\bfseries{}\textasciigrave{}\textasciigrave{}}DROP USER\textasciigrave{}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{DROP} \PYG{n}{USER} \PYG{n}{username}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Dane wprowadzone przez uśytkownika np. za pomocą polecenia \sphinxcode{\sphinxupquote{INSERT}} pozostają, nawet jeśli jego konto zostało usunięte.
+
+
+\subsubsection{Usunięcie użytkownika, a dane które posiadał}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:usuniecie-uzytkownika-a-dane-ktore-posiadal}}
+\sphinxAtStartPar
+Po usunięciu używtkonika dane, które posiadał nie są automatycznie usuwane. Dane te pozostają w bazie danych ale stają się “niedostępne” dla tego użytkownika. Aby się ich pozbyć, musi to zrobić użytkownik który ma do nich uprawnienia, korzystając z plecenia \sphinxcode{\sphinxupquote{DROP}}.
+
+
+\subsubsection{Usunięcie użytkowników, a obietky}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:usuniecie-uzytkownikow-a-obietky}}
+\sphinxAtStartPar
+Usuniecie użytkownika, który jest właścicielem obiektów, wygląda inaczej niż przy wcześniejszych danych. Jeżeli użytkownik jest właścicielem jakiegoś obiektu, to jego usunięcie skutkuje błędem:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ERROR}\PYG{p}{:} \PYG{n}{role} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{username}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{cannot} \PYG{n}{be} \PYG{n}{droped} \PYG{n}{becouse} \PYG{n}{some} \PYG{n}{objects} \PYG{n}{depend} \PYG{n}{on} \PYG{n}{it}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Aby zapobiec takim błędom stosujemy poniższe rozwiazanie:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{REASSIGN} \PYG{n}{OWNED} \PYG{n}{BY} \PYG{n}{username} \PYG{n}{TO} \PYG{n}{nowa\PYGZus{}rola}\PYG{p}{;}
+\PYG{n}{DROP} \PYG{n}{OWNER} \PYG{n}{BY} \PYG{n}{username}\PYG{p}{;}
+\PYG{n}{DROP} \PYG{n}{ROLE} \PYG{n}{username}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{4. Zabezpieczenie połączenia przez SSL/TLS}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:zabezpieczenie-polaczenia-przez-ssl-tls}}
+\sphinxAtStartPar
+TLS (Transport Layer Security) i jego poprzednik SSL (Secure Sockets Layer) to kryptograficzne protokoły służące do zabezpieczania połączeń sieciowych. W PostgreSQL służą one do szyfrowania transmisji danych pomiędzy klientem a serwerem, uniemożliwiając podsłuch, modyfikację lub podszywanie się pod jedną ze stron.
+
+
+\subsubsection{Konfiguracja SSL/TLS w PostgreSQL}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:konfiguracja-ssl-tls-w-postgresql}}
+\sphinxAtStartPar
+Konfiguracja serwera: musimy edytować dwa pliki i zrestartować serwer PostgreSQL. Plik \sphinxcode{\sphinxupquote{postgresql.conf}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ssl} \PYG{o}{=} \PYG{n}{on}
+\PYG{n}{ssl\PYGZus{}cert\PYGZus{}file} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{server.crt}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{ssl\PYGZus{}key\PYGZus{}file} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{server.key}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{ssl\PYGZus{}ca\PYGZus{}file} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{root.crt}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{ssl\PYGZus{}min\PYGZus{}protocol\PYGZus{}version} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{TLSv1.3}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+oraz ‘’pg\_hba.conf’’:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{hostssl} \PYG{n+nb}{all} \PYG{n+nb}{all} \PYG{l+m+mf}{0.0}\PYG{l+m+mf}{.0}\PYG{l+m+mf}{.0}\PYG{o}{/}\PYG{l+m+mi}{0} \PYG{n}{cert}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Generowanie certyfikatów: jeśli nie używamy komercyjnego CA, możemy sami go wygerenować, a pomocą poniższych komend:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{openssl} \PYG{n}{genrsa} \PYG{o}{\PYGZhy{}}\PYG{n}{out} \PYG{n}{server}\PYG{o}{.}\PYG{n}{key} \PYG{l+m+mi}{2048}
+\PYG{n}{openssl} \PYG{n}{req} \PYG{o}{\PYGZhy{}}\PYG{n}{new} \PYG{o}{\PYGZhy{}}\PYG{n}{key} \PYG{n}{server}\PYG{o}{.}\PYG{n}{key} \PYG{o}{\PYGZhy{}}\PYG{n}{out} \PYG{n}{server}\PYG{o}{.}\PYG{n}{csr}
+\PYG{n}{openssl} \PYG{n}{x509} \PYG{o}{\PYGZhy{}}\PYG{n}{req} \PYG{o}{\PYGZhy{}}\PYG{n}{days} \PYG{l+m+mi}{365} \PYG{o}{\PYGZhy{}}\PYG{o+ow}{in} \PYG{n}{server}\PYG{o}{.}\PYG{n}{csr} \PYG{o}{\PYGZhy{}}\PYG{n}{signkey} \PYG{n}{server}\PYG{o}{.}\PYG{n}{key} \PYG{o}{\PYGZhy{}}\PYG{n}{out} \PYG{n}{server}\PYG{o}{.}\PYG{n}{crt}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Konfiguracja klienta: parametry SSL, których możemy użyć.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{sslmode}} \sphinxhyphen{} kontroluje wymuszanie i weryfikację SSL (\sphinxcode{\sphinxupquote{require}}, \sphinxcode{\sphinxupquote{verify\sphinxhyphen{}ca}}, \sphinxcode{\sphinxupquote{verify\sphinxhyphen{}full}})
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{sslcert}} \sphinxhyphen{} ścieżka do certyfikatu klienta (jeśli wymagane uwierzytelnienie certyfikatem)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{sslkey}} \sphinxhyphen{}  klucz prywatny klienta
+
+\item {} 
+\sphinxAtStartPar
+\sphinxcode{\sphinxupquote{sslrootcert}} \sphinxhyphen{} certyfikat CA do weryfikacji certyfikatu serwera
+
+\end{itemize}
+
+
+\subsubsection{Monitorowanie i testowanie SSL/TLS}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:monitorowanie-i-testowanie-ssl-tls}}
+\sphinxAtStartPar
+Sprawdzenie czy połączenie jest szyfrowanie w PostgreSQL wystarczy użyć prostego polecenia \sphinxcode{\sphinxupquote{SELECT ssl\_is\_used();}}. Jeśli jednak chcemy dostać więcej informacji, musimy wpisać poniższe polecenia:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{datname}\PYG{p}{,} \PYG{n}{usename}\PYG{p}{,} \PYG{n}{ssl}\PYG{p}{,} \PYG{n}{client\PYGZus{}addr}\PYG{p}{,} \PYG{n}{application\PYGZus{}name}\PYG{p}{,} \PYG{n}{backend\PYGZus{}type}
+\PYG{n}{FROM} \PYG{n}{pg\PYGZus{}stat\PYGZus{}ssl}
+\PYG{n}{JOIN} \PYG{n}{pg\PYGZus{}stat\PYGZus{}activity} \PYG{n}{ON} \PYG{n}{pg\PYGZus{}stat\PYGZus{}ssl}\PYG{o}{.}\PYG{n}{pid} \PYG{o}{=} \PYG{n}{pg\PYGZus{}stat\PYGZus{}activity}\PYG{o}{.}\PYG{n}{pid}
+\PYG{n}{ORDER} \PYG{n}{BY} \PYG{n}{ssl}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Testowanie z poziomu terminala pozwala podejrzeć szczegóły TLS takie jak certyfikaty, wesję protokołu czy użyty szyft. Wpisujemy poniższą komendę:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{openssl} \PYG{n}{s\PYGZus{}client} \PYG{o}{\PYGZhy{}}\PYG{n}{starttls} \PYG{n}{postgres} \PYG{o}{\PYGZhy{}}\PYG{n}{connect} \PYG{n}{example}\PYG{o}{.}\PYG{n}{com}\PYG{p}{:}\PYG{l+m+mi}{5432} \PYG{o}{\PYGZhy{}}\PYG{n}{showcerts}
+\end{sphinxVerbatim}
+
+
+\subsection{5. Szyfrowanie danych}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:szyfrowanie-danych}}
+\sphinxAtStartPar
+Szyfrowanie danych w PostgreSQL odgrywa kluczową rolę w zapewnianiu poufności, integralności i ochrony danych przed nieautoryzowanym dostępem. Można je realizować na różnych poziomach: transmisji (in\sphinxhyphen{}transit), przechowywania (at\sphinxhyphen{}rest) oraz aplikacyjnym.
+
+
+\subsubsection{Szyfrowanie transmisji}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:szyfrowanie-transmisji}}
+\sphinxAtStartPar
+Korzystając z technologi SSL/TLS chroni dane przesyłane pomiędzy klientem, a serwerem przed podsłuchiwaniem lub modyfikacją. Wymaga konfiguracji serwera PostgreSQL do obsługi SSL oraz klienci muszą łączyć się przez SSL.
+
+
+\subsubsection{Szyfrowanie całego dysku}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:szyfrowanie-calego-dysku}}
+\sphinxAtStartPar
+Dane są szyfrowane na poziomie systemu operacyjnego lub warstwy przechowywania. Stosowanymi roziazaniami jest LUKS, BitLocker, szyfrowanie oferowane przez chmury. Zaletami tego szyfrowania jest transparentność dla PostgrSQL i łatwość w implementacji. Wadami za to jest brak selektywnego szyfrowania oraz fakt, że jeśli system jest aktywny to dane są odszyfrowane i dostępne.
+
+
+\subsubsection{Szyfrowanie na poziomie kolumn z użyciem pgcrypto}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:szyfrowanie-na-poziomie-kolumn-z-uzyciem-pgcrypto}}
+\sphinxAtStartPar
+Pozwala na szyfrowanie konkretnych kolumn danych. Rozszerzenie to \sphinxcode{\sphinxupquote{pgcrypto}}. Funkcje takiego szyfrowania to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+symetryczne szyfrowanie
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{pgp\PYGZus{}sym\PYGZus{}encrypt}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{tajne dane}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{haslo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{SELECT} \PYG{n}{pgp\PYGZus{}sym\PYGZus{}decrypt}\PYG{p}{(}\PYG{n}{kolumna}\PYG{p}{:}\PYG{p}{:}\PYG{n}{bytea}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{haslo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+asymetryczne szyfrowanie (z uśyciem kluczy publicznych/prywatnych)
+
+\item {} 
+\sphinxAtStartPar
+haszowanie
+
+\end{itemize}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{SELECT} \PYG{n}{digest}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{haslo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{sha256}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Zaletami tego szyfrowania jest duża elastyczność i selektywne szyfrowanie. Wadami zaś wydajność i konieczność zarządzania kluczami w aplikacji.
+
+
+\subsubsection{Szyfrowanie na poziomie aplikacji}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:szyfrowanie-na-poziomie-aplikacji}}
+\sphinxAtStartPar
+Dane są szyfrowane przed zapisaniem do bazy danych i odszyfrowywane po odczycie. Używane biblioteki:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Python \textendash{} cryptography, pycryptodome,
+
+\item {} 
+\sphinxAtStartPar
+Java \textendash{} javax.crypto, Bouncy Castle,
+
+\item {} 
+\sphinxAtStartPar
+JavaScript \textendash{} crypto, sjcl.
+
+\end{itemize}
+
+\sphinxAtStartPar
+Zaletami jest pełna kontrola nad szyfrowaniem oraz fakt, że dane są chronione nawet w razie włamania do bazy. Wadami zaś trudniejsze wyszukiwanie i indeksowanie, konieczność przeniesienia odpowiedzialności za bezpieczeństwo do aplikacji oraz problemy ze zgodnością przy migracjach danych.
+
+
+\subsubsection{Zarządzanie kluczami szyfrującymi}
+\label{\detokenize{rozdzial2/Bezpieczenstwo/index:zarzadzanie-kluczami-szyfrujacymi}}
+\sphinxAtStartPar
+Niezależnie od rodzaju szyfrowania, bezpieczne zarządzanie kluczami jest kluczowe dla ochrony danych. Klucze powinny być generowane, przechowywane, dystrybuowane i niszczone w sposób bezpieczny. Potrzebne są do tego odpowiednie narzędzia. Rekomendowanymi narzędziami do bezpiecznego zarządzania kluczami są:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Sprzętowe moduły bezpieczeństwa (HSM) \sphinxhyphen{} Urządzenia te oferują bezpieczne środowisko do generowania, przechowywania i zarządzania kluczami. HSM\sphinxhyphen{}y są odporne na fizyczne ataki i zapewniają wysoki poziom bezpieczeństwa.
+
+\item {} 
+\sphinxAtStartPar
+Systemy zarządzania kluczami (KMS) \sphinxhyphen{} KMS to oprogramowanie, które centralizuje zarządzanie kluczami, umożliwiając ich bezpieczne przechowywanie, rotację i dystrybucję.
+
+\item {} 
+\sphinxAtStartPar
+Narzędzia do bezpiecznej komunikacji \sphinxhyphen{} Narzędzia takie jak Signal czy WhatsApp oferują szyfrowanie end\sphinxhyphen{}to\sphinxhyphen{}end, które chroni komunikację przed nieautoryzowanym dostępem.
+
+\item {} 
+\sphinxAtStartPar
+Narzędzia do szyfrowania dysków \sphinxhyphen{} Takie jak BitLocker czy FileVault, które pozwalają na zaszyfrowanie całego dysku twardego lub jego partycji.
+
+\end{itemize}
+
+\sphinxstepscope
+
+
 \chapter{Projektowanie bazy danych \sphinxhyphen{} modele}
 \label{\detokenize{rozdzial3/index:projektowanie-bazy-danych-modele}}\label{\detokenize{rozdzial3/index::doc}}\begin{quote}\begin{description}
 \sphinxlineitem{author}
@@ -2355,6 +2832,10 @@ Sprzęt dla bazy danych: \sphinxurl{https://github.com/oszczeda/Sprzet-dla-bazy-
 \item {} 
 \sphinxAtStartPar
 Konfiguracja baz danych: \sphinxurl{https://github.com/Chaiolites/Konfiguracja\_baz\_danych.git}
+
+\item {} 
+\sphinxAtStartPar
+Bezpieczeństwo: \sphinxurl{https://github.com/BlazejUl/bezpieczenstwo.git}
 
 \end{enumerate}
 
