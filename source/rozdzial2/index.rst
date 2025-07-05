@@ -12,3 +12,6 @@ Poniżej zamieszczono dokumentacje poszczególnych przeglądów literatury:
    Konfiguracja_baz_danych/Konfiguracja_baz_danych
    Bezpieczenstwo/index
    Monitorowanie-i-diagnostyka/index
+   Kopie_zapasowe_i_odzyskiwanie_danych/kopie_zapasowe_i_odzyskiwanie_danych
+   Kontrola_i_konserwacja/kontrola_i_konserwacja
+   Partycjonowanie-danych/source/Partycjonowanie
