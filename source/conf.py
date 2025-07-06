@@ -1,5 +1,5 @@
 project = 'Sprawozdanie'
-author = 'Mateusz Brokos, Szymon Blatkowski'
+author = 'Mateusz Brokos'
 release = '1.0'
 
 extensions = []
